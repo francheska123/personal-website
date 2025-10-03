@@ -67,7 +67,6 @@ body {
 }
 
 .landing-page {
-    margin-top: 0;
     position: relative;
     background: url('Assets/LandingPageBackground.jpg') center/cover no-repeat;
     height: 70vh;
@@ -79,17 +78,42 @@ body {
     color: white;
     padding: 0 20px;
     overflow: hidden;
+    z-index: 0; /* base layer */
+}
+
+/* Gradient overlay */
+.landing-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(240, 142, 162, 0.3),
+        rgba(118, 169, 244, 0.3)
+    );
+    mix-blend-mode: overlay;
+    z-index: 1; /* behind text/content */
+    pointer-events: none; /* allows clicks through */
+}
+
+/* Content container above the overlay */
+.header-container {
+    position: relative;
+    z-index: 2;
 }
 
 .landing-page h3 {
     font-size: 25px;
+    margin: 0;
 }
 
 /* Arrow styling */
 .header-arrow {
+    position: relative;
+    z-index: 2;
     font-size: 5rem;
     color: white;
-    margin: 0px 0;
+    margin: 0 0 20px 0;
     animation: bounce 1.5s infinite;
 }
 
@@ -102,19 +126,17 @@ body {
     }
 }
 
-/* Gradient overlay */
-.landing-page::before {
+/* Optional: subtle grain effect using a pseudo-element */
+.landing-page::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        45deg,
-        rgba(240, 142, 162, 0.4),
-        rgba(118, 169, 244, 0.4)
-    );
-    mix-blend-mode: overlay;
-    z-index: 1; /* stays behind content */
+    background: url('Assets/grain.png'); /* small semi-transparent noise image */
+    opacity: 0.1;
+    z-index: 1; /* same as gradient overlay */
+    pointer-events: none;
 }
+
 
 /* Header container sits above the overlay */
 .header-container {
