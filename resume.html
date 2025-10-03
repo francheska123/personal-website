@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francheska Guerrero - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ---------------------- */
+        /* FONTS */
+        /* ---------------------- */
+        @font-face {
+            font-family: 'Helvetica Neue';
+            src: url('/Users/Franny/Desktop/Portfolio/Fonts/HelveticaNeue/HelveticaNeueRoman.otf') format('truetype'),
+                 url('/Users/Franny/Desktop/Portfolio/Fonts/HelveticaNeue/HelveticaNeueBold.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        h1, h2, h3, h4, h5, h6, .title, .heading {
+            font-family: 'Helvetica Neue', serif;
+        }
+
+        body, p, .sub-heading, .text {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* ---------------------- */
+        /* BODY */
+        /* ---------------------- */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #111;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---------------------- */
+        /* PERSISTENT HEADER NAVIGATION */
+        /* ---------------------- */
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: white;
+            border-bottom: 1px solid #000;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        #home-link {
+            font-weight: bold;
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+
+        .right-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .header-linkz {
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+        }
+
+        /* ---------------------- */
+        /* PAGE HEADER */
+        /* ---------------------- */
+        .page-header {
+            text-align: center;
+            padding: 40px 20px 30px;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 16px;
+        }
+
+        /* ---------------------- */
+        /* SECTIONS */
+        /* ---------------------- */
+        section {
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 28px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .job-title {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .job-dates {
+            font-style: italic;
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .skills ul {
+            columns: 2;
+        }
+
+        /* ---------------------- */
+        /* RESPONSIVE */
+        /* ---------------------- */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 36px;
+            }
+            .skills ul {
+                columns: 1;
+            }
+            .right-links {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Persistent Header Navigation -->
+    <header class="site-header">
+        <div class="header-links">
+            <a href="index.html" id="home-link">Francheska Guerrero</a>
+            <div class="right-links">
+                <a href="index.html" class="header-linkz">Home</a>
+                <a href="resume.html" class="header-linkz">Resume</a>
+                <a href="#writing" class="header-linkz">Writing</a>
+                <a href="about.html" class="header-linkz">About</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Francheska Guerrero</h1>
+        <p>
+            561-801-4330 | 
+            <a href="mailto:francheskamguerrero@gmail.com">francheskamguerrero@gmail.com</a> | 
+            <a href="https://www.linkedin.com/in/francheskaguerrero/" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 
+            <a href="https://github.com/francheska" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </p>
+    </div>
+
+    <!-- Summary Section -->
+    <section>
+        <h2>Summary</h2>
+        <p>Data-focused digital strategist with 3+ years of experience bridging analytics and marketing to deliver data-driven business outcomes. Skilled in designing measurement frameworks, activating data-driven campaigns, and translating complex insights into actionable strategies. Experienced in audience segmentation, predictive modeling, and KPI-driven optimization, with proven results in client retention, revenue growth, and campaign performance. Recent certifications in Data Analytics and Python, including capstone projects in SQL, Tableau, and predictive analytics, demonstrate a strong foundation for enterprise-level data strategy.</p>
+    </section>
+
+    <!-- Professional Experience Section -->
+    <section>
+        <h2>Professional Experience</h2>
+        <div class="job">
+            <h3 class="job-title">Social Media Marketing Manager – Mochee Digital, Miami, FL</h3>
+            <p class="job-dates">May 2022 – Present</p>
+            <ul>
+                <li>Designed and implemented data-driven measurement frameworks, aligning KPIs to client objectives and ensuring accurate reporting across platforms (SQL, Tableau, Excel).</li>
+                <li>Partnered with cross-functional stakeholders to translate complex analytics into actionable business strategies, guiding campaign adjustments and ROI improvements.</li>
+                <li>Led audience segmentation and funnel analysis to optimize campaigns, driving a 25% increase in client retention and 15% increase in upsells.</li>
+                <li>Executed data-driven marketing activations, including AI-powered paid media optimization and A/B testing, achieving a 3.94 ROAS for a national film festival campaign.</li>
+                <li>Developed integrated multi-channel messaging frameworks, leveraging insights to increase campaign reach by 1,567% and impressions by 2,238%.</li>
+                <li>Synthesized performance data to provide strategic recommendations, enabling proactive decision-making during high-pressure client crises.</li>
+                <li>Collaborated on trend analysis and predictive modeling projects, identifying actionable patterns to inform future marketing and business strategy.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education">
+        <h2>Education</h2>
+        <div>
+            <h3>Brainstation – Data Analyst Certification (DAC™)</h3>
+            <p class="job-dates">January – March 2025</p>
+            <p>Capstone: Analyzed 20+ years of Canada’s trade data using Excel, SQL, and Tableau, evaluating tariff impacts on GDP and trade balance to model policy outcomes.</p>
+        </div>
+        <div>
+            <h3>Brainstation – Python Certification (PPC™)</h3>
+            <p class="job-dates">March – April 2025</p>
+            <p>Capstone: Built Python workflows in Jupyter to clean/analyze e-commerce data. Identified purchase trends, product popularity, and review sentiment to guide future ML recommendations.</p>
+        </div>
+        <div>
+            <h3>University of Florida, Gainesville, FL</h3>
+            <p class="job-dates">August 2018 – May 2022</p>
+            <p>BS, Media Production, Management, and Technology, Magna Cum Laude, GPA: 3.6</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li><strong>Data Strategy & Analytics:</strong> Measurement frameworks, data-driven marketing solutions, KPI alignment, audience segmentation, predictive modeling, trend analysis, A/B testing, campaign optimization.</li>
+            <li><strong>Tools & Platforms:</strong> SQL, Tableau, Excel (pivot tables), Google Analytics, Brandwatch, Meta Ads Manager, Google Ads, Jupyter.</li>
+            <li><strong>Consulting & Communication:</
