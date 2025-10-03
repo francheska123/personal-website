@@ -80,19 +80,6 @@ body {
     overflow: hidden;
 }
 
-/* Gradient overlay as semi-transparent layer */
-.landing-page::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        45deg,
-        rgba(240, 142, 162, 0.3),
-        rgba(118, 169, 244, 0.3)
-    );
-    z-index: 1; /* behind content */
-    pointer-events: none; /* allow clicks through */
-}
 
 /* Content container above gradient */
 .header-container {
