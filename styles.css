@@ -5,7 +5,7 @@
     font-family: 'Helvetica Neue';
     src: url('/Users/Franny/Desktop/Portfolio/Fonts/HelveticaNeue/HelveticaNeueRoman.otf') format('truetype'),
         url('/Users/Franny/Desktop/Portfolio/Fonts/HelveticaNeue/HelveticaNeueBold.otf') format('opentype');
-   font-weight: normal;
+    font-weight: normal;
     font-style: normal;
 }
 
@@ -66,22 +66,22 @@ body {
     font-size: 16px;
 }
 
+/* Landing Page */
 .landing-page {
     position: relative;
     background: url('Assets/LandingPageBackground.jpg') center/cover no-repeat;
-    height: 70vh;
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
-    padding: 0 20px;
+    padding: 20px 10px;
     overflow: hidden;
 }
 
-
-/* Content container above gradient */
+/* Content container above background */
 .header-container {
     position: relative;
     z-index: 2;
@@ -105,11 +105,26 @@ body {
     }
 }
 
-
-/* Header container sits above the overlay */
-.header-container {
-    position: relative;
-    z-index: 2; /* text and links are clickable */
+/* Mobile styles */
+@media (max-width: 768px) {
+    .landing-page h2.main-heading {
+        font-size: 1.5rem;
+    }
+    .landing-page h3.little-heading {
+        font-size: 1.2rem;
+    }
+    .header-arrow {
+        font-size: 3rem;
+    }
+    .landing-page {
+        padding: 100px 20px;
+    }
+    .main-heading {
+        font-size: 2rem; /* adjusted smaller for mobile */
+    }
+    .introduction {
+        font-size: 18px;
+    }
 }
 
 /* Heading */
@@ -136,55 +151,34 @@ body {
 /* Make links inside paragraph white and clickable */
 .introduction a {
     color: white;
-    text-decoration: underline; /* optional for visibility */
+    text-decoration: underline;
     position: relative;
     z-index: 3;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .landing-page {
-        padding: 100px 20px;
-    }
-
-    .main-heading {
-        font-size: 50px;
-    }
-
-    .introduction {
-        font-size: 18px;
-    }
-
-    .header-image img {
-        width: 100%;
-        height: auto;
-    }
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-    .main-heading {
-        font-size: 5em;
-    }
+/* Header container sits above everything */
+.header-container {
+    position: relative;
+    z-index: 2;
 }
 
 /* Client Carousel */
 .client-carousel {
     overflow: hidden;
-    background-color: #fff; /* change if needed */
+    background-color: #fff;
     padding: 30px 0;
 }
 
 .carousel-track {
     display: flex;
-    gap: 60px; /* spacing between logos */
+    gap: 60px;
     animation: scroll 20s linear infinite;
     align-items: center;
-    width: calc(200%); /* needed for continuous scroll */
+    width: calc(200%);
 }
 
 .carousel-track img {
-    height: 60px; /* adjust logo size */
+    height: 60px;
     object-fit: contain;
     transition: transform 0.3s, opacity 0.3s;
 }
@@ -194,13 +188,11 @@ body {
     opacity: 1;
 }
 
-/* Infinite scroll animation */
 @keyframes scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .carousel-track img {
         height: 40px;
@@ -211,7 +203,7 @@ body {
 }
 
 /* Project Spotlight */
-.project-spotlight{
+.project-spotlight {
     align-items: center;
     text-align: center;
     padding: 20px 50px;
@@ -220,50 +212,52 @@ body {
     border-bottom: 1px solid #000;
     position: relative;
 }
-.project-spotlight h3{
+
+.project-spotlight h3 {
     font-size: 45px;
     color: rgb(255, 158, 236);
 }
 
 .project-spotlight h1 {
-    font-size: 100px; /* adjust to whatever size you want */
-    line-height: 0.5; /* optional, to control spacing between lines */
+    font-size: 100px;
+    line-height: 0.5;
     color:white;
 }
 
 .project-divider {
-    width: 1200px;       /* adjust length */
-    height: 5px;        /* thickness of the line */
-    background-color: #ff9ece; /* match your design/accent color */
-    margin: 20px auto 0; /* 20px spacing above, centered */
-    border-radius: 2px; /* optional rounded ends */
+    width: 1200px;
+    height: 5px;
+    background-color: #ff9ece;
+    margin: 20px auto 0;
+    border-radius: 2px;
 }
+
 .project-spotlight p {
     font-size: 25px;
-    margin-top: 70px;    /* space between divider and paragraph */
-    width: 900px;       /* same width as divider */
-    margin-left: auto;    /* centers the paragraph horizontally */
+    margin-top: 70px;
+    width: 900px;
+    margin-left: auto;
     margin-right: auto;
     font-weight: 300;
-    text-align: left;     /* aligns the text to the left inside the paragraph */
+    text-align: left;
 }
 
 #project-spotlight-paragraph-read-more {
-    font-size: 18px;       /* adjust size */
-    font-weight: 400;      /* normal or bold if you want */
-    color: #ff9ece;        /* accent color */
-    margin-top: 40px;      /* space above */
-    cursor: pointer;       /* shows clickable pointer */
-    text-align: left;      /* align with your paragraph */
-    transition: color 0.3s; /* optional hover effect */
+    font-size: 18px;
+    font-weight: 400;
+    color: #ff9ece;
+    margin-top: 40px;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.3s;
     font-style: italic;
 }
 
 #project-spotlight-paragraph-read-more:hover {
-    color: #ff77b0;       /* change color on hover */
+    color: #ff77b0;
 }
 
-/* On-Site Client Work Gallery Styling */
+/* On-Site Client Work Gallery */
 .on-site-gallery {
     max-width: 1200px;
     margin: 50px auto;
@@ -301,35 +295,30 @@ body {
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-/* Make featured image span full row */
+/* Featured image smaller */
 .gallery-item.featured {
     grid-column: 1 / -1; /* spans all columns */
 }
 
 .gallery-item.featured img {
-    width: 50%;   /* already full width but ensures it scales properly */
+    width: auto;        /* smaller width */
+    max-width: 600px;   /* limits size */
     height: auto;
-    max-height: 600px; /* optional: control max height */
+    max-height: 400px;
     object-fit: cover;
+    margin: 0 auto;     /* centers image */
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .vibe-gallery h2 {
-        font-size: 28px;
-    }
-}
-
-/* About HTML Section */
+/* About Section */
 .about-section {
     position: relative;
     overflow: hidden;
-    height: 70vh; /* similar to your landing page */
+    height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center; /* centers the text */
+    text-align: center;
     color: white;
     padding: 0 20px;
 }
@@ -345,26 +334,23 @@ body {
     transform: translate(-50%, -50%);
     object-fit: cover;
     z-index: 0;
-    filter: brightness(0.6); /* optional: darken video for readability */
+    filter: brightness(0.6);
 }
 
 .about-text-container {
     position: relative;
-    z-index: 1; /* sits above the video */
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-
-
-
-/* Footer styling */
+/* Footer */
 .footer {
     padding-top: 10px;
     border-top: 2px solid #000;
-    margin-top: 40 px;
+    margin-top: 40px;
 }
 
 .footer p a {
