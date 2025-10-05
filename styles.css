@@ -345,6 +345,7 @@ body, p, .sub-heading, .text {
 
 
 /* About Section */
+/*
 .about-section {
     position: relative;
     overflow: hidden;
@@ -380,6 +381,74 @@ body, p, .sub-heading, .text {
     align-items: center;
     justify-content: center;
 }
+*/
+
+/* About Section */
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: 80px 10%;
+  background-color: #fff;
+}
+
+.about-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.about-content h2 {
+  font-family: "Source Serif Pro", serif;
+  font-size: 2.8rem;
+  color: #000;
+  margin-bottom: 1.5rem;
+}
+
+.about-content p {
+  font-family: "Inter", sans-serif;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 1.2rem;
+}
+
+.about-content a {
+  color: #000;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  max-width: 550px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 900px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 5%;
+  }
+
+  .about-image img {
+    max-width: 400px;
+  }
+
+  .about-content h2 {
+    font-size: 2.2rem;
+  }
+}
+
 
 /* Footer */
 .footer {
