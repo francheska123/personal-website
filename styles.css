@@ -94,6 +94,11 @@ body, p, .sub-heading, .text {
     overflow: hidden;
 }
 
+/* Remove semi-transparent overlay */
+.landing-page::before {
+    content: none;
+}
+
 /* Content container above background */
 .header-container {
     position: relative;
@@ -148,14 +153,15 @@ body, p, .sub-heading, .text {
     overflow: hidden;
     background-color: #fff;
     padding: 30px 0;
+    text-align: center;
 }
 
 .carousel-track {
     display: flex;
     gap: 2rem;
-    animation: scroll 20s linear infinite;
     align-items: center;
-    width: 100%;
+    width: max-content;
+    animation: scroll 25s linear infinite;
 }
 
 .carousel-track img {
@@ -170,9 +176,17 @@ body, p, .sub-heading, .text {
     opacity: 1;
 }
 
+/* Keyframes with pause at start */
 @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(0); /* pause for 5 seconds */
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* Project Spotlight */
@@ -181,7 +195,7 @@ body, p, .sub-heading, .text {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 20px 50px;
+    padding: 40px 50px;
     background-color: #000;
     color: white;
     border-bottom: 1px solid #000;
@@ -189,35 +203,41 @@ body, p, .sub-heading, .text {
 }
 
 .project-spotlight h3 {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-size: clamp(1.5rem, 5vw, 2rem);
     color: #ff9ece;
+    margin-bottom: 0.25rem; /* tighter spacing */
+    line-height: 1.2; /* reduced line spacing */
 }
 
 .project-spotlight h1 {
-    font-size: clamp(3rem, 10vw, 6rem);
-    line-height: 1;
-    color:white;
+    font-size: clamp(3rem, 8vw, 5rem);
+    line-height: 1.05; /* more compact, elegant look */
+    color: white;
+    margin-top: 0; /* remove excess top spacing */
+    margin-bottom: 0.25rem;
 }
 
 .project-divider {
     width: 100%;
     max-width: 1200px;
-    height: 5px;
+    height: 4px;
     background-color: #ff9ece;
-    margin: 20px auto 0;
+    margin: 10px auto 0;
     border-radius: 2px;
 }
 
 .project-spotlight p {
     font-size: clamp(0.9rem, 2.5vw, 1.25rem);
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     width: 100%;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
     font-weight: 300;
     text-align: left;
+    line-height: 1.6; /* slightly tighter paragraph spacing */
 }
+
 
 #project-spotlight-paragraph-read-more {
     font-size: clamp(0.875rem, 2vw, 1rem);
@@ -278,8 +298,8 @@ body, p, .sub-heading, .text {
 
 .gallery-item.featured img {
     width: auto;
-    max-width: 600px;
-    max-height: 400px;
+    max-width: 400px; /* smaller image size */
+    max-height: 300px;
     height: auto;
     object-fit: cover;
     margin: 0 auto;
@@ -355,33 +375,63 @@ body, p, .sub-heading, .text {
     padding-right: 10px;
 }
 
-/* Mobile-specific adjustments */
+/* MOBILE FIXES */
 @media (max-width: 768px) {
     .site-header {
         flex-wrap: wrap;
         padding: 15px 5%;
     }
+
+    #home-link {
+        font-size: 1rem;
+        left: 0;
+    }
+
     .right-links {
         gap: 1rem;
         flex-wrap: wrap;
     }
+
     .landing-page {
         min-height: 60vh;
-        padding: 80px 5%;
+        padding: 60px 5%;
+        background-position: center;
+        background-size: cover;
     }
+
     .header-arrow {
         font-size: clamp(1.5rem, 8vw, 3rem);
     }
+
+    .main-heading {
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+        line-height: 1.3;
+    }
+
+    .project-spotlight {
+        padding: 30px 20px;
+    }
+
     .project-spotlight h1 {
-        font-size: clamp(2rem, 10vw, 3rem);
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+        line-height: 1.2;
     }
+
     .project-spotlight h3 {
-        font-size: clamp(1.2rem, 5vw, 1.5rem);
+        font-size: clamp(1rem, 4vw, 1.3rem);
     }
+
     .project-spotlight p {
         font-size: clamp(0.875rem, 3vw, 1rem);
+        line-height: 1.5;
     }
+
     .carousel-track img {
         max-height: 40px;
+    }
+
+    .gallery-item.featured img {
+        max-width: 300px;
+        max-height: 220px;
     }
 }
