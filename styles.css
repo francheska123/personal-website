@@ -66,6 +66,10 @@ body, p, .sub-heading, .text {
     left: -30px;
 }
 
+#home-link:hover {
+    color: #ff77b0;
+}
+
 .right-links {
     display: flex;
     gap: 4rem;
