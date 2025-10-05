@@ -100,48 +100,44 @@
 
 </section>
 
-<!-- Vibe Gallery Section -->
 <section class="on-site-gallery">
     <h2>On-Site Client Work</h2>
-    <div class="gallery-grid">
 
-        <div class="gallery-item">
-            <img src="Assets/Gallery/Coworkers.jpeg" alt="Coworkers">
+    <div class="gallery-carousel">
+        <button class="gallery-btn prev" aria-label="Previous">‹</button>
+
+        <div class="gallery-track">
+            <div class="gallery-item"><img src="Assets/Gallery/Coworkers.jpeg" alt="Coworkers"></div>
+            <div class="gallery-item"><img src="Assets/Gallery/Flavia-Shoot-Pic.jpeg" alt="Flavia Shoot Pic"></div>
+            <div class="gallery-item"><img src="Assets/Gallery/Miami-Book-Fair-Group.jpeg" alt="Miami Book Fair"></div>
+            <div class="gallery-item"><img src="Assets/Gallery/Miami-Marathon.jpeg" alt="Miami Marathon"></div>
+            <div class="gallery-item"><img src="Assets/Gallery/29-Wynwood-Flag.png" alt="29 Wynwood Flag"></div>
+            <div class="gallery-item"><img src="Assets/Gallery/Miami-Book-Fair-Guide.jpeg" alt="Miami Book Fair Guide"></div>
+            <div class="gallery-item"><img src="Assets/Gallery/Flavia-Shoot-Screen.jpeg" alt="Flavia Shoot Screen"></div>
+            <div class="gallery-item"><img src="Assets/Gallery/Miami-Book-Fair-Solo.jpeg" alt="Miami Book Fair Solo"></div>
         </div>
 
-        <div class="gallery-item">
-            <img src="Assets/Gallery/Flavia-Shoot-Pic.jpeg" alt="Flavia Shoot Pic">
-        </div>
-
-        <div class="gallery-item">
-            <img src="Assets/Gallery/Miami-Book-Fair-Group.jpeg" alt="Miami Book Fair">
-        </div>
-
-        <div class="gallery-item">
-            <img src="Assets/Gallery/Miami-Marathon.jpeg" alt="Miami Marathon">
-        </div>
-
-        <div class="gallery-item">
-            <img src="Assets/Gallery/29-Wynwood-Flag.png" alt="29 Wynwood Flag">
-        </div>
-
-        <div class="gallery-item">
-            <img src="Assets/Gallery/Miami-Book-Fair-Guide.jpeg" alt="Miami Book Fair Guide">
-        </div>
-
-        <div class="gallery-item">
-            <img src="Assets/Gallery/Flavia-Shoot-Screen.jpeg" alt="Flavia Shoot Screen">
-        </div>
-
-
-        <div class="gallery-item">
-            <img src="Assets/Gallery/Miami-Book-Fair-Solo.jpeg" alt="Miami Book Fair Solo">
-        </div>
-
-       <div class="gallery-item featured">
-            <img src="Assets/Gallery/Mochee-Team.jpeg" alt="Mochee Team">
-        </div>
+        <button class="gallery-btn next" aria-label="Next">›</button>
+    </div>
 </section>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const track = document.querySelector(".gallery-track");
+    const prevBtn = document.querySelector(".gallery-btn.prev");
+    const nextBtn = document.querySelector(".gallery-btn.next");
+
+    if (track && prevBtn && nextBtn) {
+        nextBtn.addEventListener("click", () => {
+            track.scrollBy({ left: 350, behavior: "smooth" });
+        });
+
+        prevBtn.addEventListener("click", () => {
+            track.scrollBy({ left: -350, behavior: "smooth" });
+        });
+    }
+});
+</script>
+
 
 
 
