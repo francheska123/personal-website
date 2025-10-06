@@ -506,11 +506,15 @@ body, p, .sub-heading, .text {
     font-size: clamp(1rem, 2.5vw, 1.5rem);
 }
 
-.footer p a::after {
-    content: "↗";
-    font-size: 1em;
-    color: black;
+.footer a::after {
+  content: "↗";
+  font-family: "Inter", sans-serif; /* or your preferred text font */
+  font-size: 0.9em;
+  margin-left: 4px;
+  display: inline-block;
+  vertical-align: middle;
 }
+
 
 .footer p {
     margin: 5px 0;
