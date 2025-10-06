@@ -38,50 +38,90 @@ body, p, .sub-heading, .text {
     font-family: 'Inter', sans-serif;
 }
 
-/* Header */
+/* HEADER BASE STYLES */
 .site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background-color: white;
-    border-bottom: 1px solid #000;
-    position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 50px;
+  background-color: #fff;
+  border-bottom: 1px solid #000;
+  position: relative;
+  z-index: 10;
 }
 
-.header-links {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.logo {
+  font-family: "Source Serif Pro", serif;
+  font-weight: 700;
+  text-decoration: none;
+  color: black;
+  font-size: 1.25rem;
+  transition: color 0.3s;
+}
+
+.logo:hover {
+  color: #ff9ece;
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ff9ece;
+}
+
+/* HAMBURGER BUTTON (HIDDEN ON DESKTOP) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #000;
+}
+
+/* ======== MOBILE STYLING ======== */
+@media (max-width: 768px) {
+  .site-header {
+    flex-wrap: wrap;
+    padding: 15px 25px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
     width: 100%;
-}
+    background-color: #fff;
+    border-top: 1px solid #000;
+    margin-top: 10px;
+  }
 
-#home-link {
-    font-weight: bold;
-    margin-right: auto;
-    text-decoration: none;
-    color: black;
-    font-size: 1.125rem;
-    position: relative;
-    left: -30px;
-}
-
-#home-link:hover {
-    color: #ff77b0;
-}
-
-.right-links {
+  .nav-links.active {
     display: flex;
-    gap: 4rem;
-    justify-content: flex-end;
-    align-items: center;
+  }
+
+  .nav-links a {
+    padding: 12px 0;
+    text-align: center;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #eee;
+  }
 }
 
-.header-linkz {
-    text-decoration: none;
-    color: black;
-    font-size: 1rem;
-}
 
 /* Landing Page */
 .landing-page {
