@@ -67,5 +67,17 @@
         </section>
         <p id="copyright"> Designed and Developed by Francheska Guerrero</p>
     </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuToggle.addEventListener("click", function() {
+        navLinks.classList.toggle("active");
+    });
+});
+</script>
+
 </body>
 </html>
