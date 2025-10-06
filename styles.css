@@ -467,13 +467,16 @@ body, p, .sub-heading, .text {
 }
 
 .footer a::after {
-  content: "↗";
-  font-family: "Inter", sans-serif;
+  content: "\2197"; /* Unicode arrow pointing top-right */
+  font-family: "Inter", sans-serif; /* ensures font is applied */
+  font-weight: normal;
+  font-style: normal;
   font-size: 0.9em;
   margin-left: 4px;
   display: inline-block;
   vertical-align: middle;
 }
+
 
 .footer p {
     margin: 5px 0;
