@@ -88,6 +88,7 @@ body, p, .sub-heading, .text {
   font-size: 1.8rem;
   cursor: pointer;
   color: #000;
+  z-index: 20; /* ensure it appears above nav links */
 }
 
 /* ======== MOBILE STYLING ======== */
@@ -108,6 +109,9 @@ body, p, .sub-heading, .text {
     background-color: #fff;
     border-top: 1px solid #000;
     margin-top: 10px;
+    position: absolute; /* drop down below header */
+    top: 100%;
+    left: 0;
   }
 
   .nav-links.active {
@@ -121,7 +125,6 @@ body, p, .sub-heading, .text {
     border-bottom: 1px solid #eee;
   }
 }
-
 
 /* Landing Page */
 .landing-page {
@@ -220,13 +223,12 @@ body, p, .sub-heading, .text {
     opacity: 1;
 }
 
-/* Keyframes with pause at start */
 @keyframes scroll {
     0% {
         transform: translateX(0);
     }
     20% {
-        transform: translateX(0); /* pause for 5 seconds */
+        transform: translateX(0);
     }
     100% {
         transform: translateX(-50%);
@@ -249,15 +251,15 @@ body, p, .sub-heading, .text {
 .project-spotlight h3 {
     font-size: clamp(1.5rem, 5vw, 2rem);
     color: #ff9ece;
-    margin-bottom: 0.25rem; /* tighter spacing */
-    line-height: 1.2; /* reduced line spacing */
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
 }
 
 .project-spotlight h1 {
     font-size: clamp(3rem, 8vw, 5rem);
-    line-height: 1.05; /* more compact, elegant look */
+    line-height: 1.05;
     color: white;
-    margin-top: 0; /* remove excess top spacing */
+    margin-top: 0;
     margin-bottom: 0.25rem;
 }
 
@@ -279,9 +281,8 @@ body, p, .sub-heading, .text {
     margin-right: auto;
     font-weight: 300;
     text-align: left;
-    line-height: 1.6; /* slightly tighter paragraph spacing */
+    line-height: 1.6;
 }
-
 
 #project-spotlight-paragraph-read-more {
     font-size: clamp(0.875rem, 2vw, 1rem);
@@ -312,7 +313,7 @@ body, p, .sub-heading, .text {
     margin-bottom: 30px;
     color: #111;
 }
-/* On-Site Client Work Carousel */
+
 .gallery-carousel {
     position: relative;
     display: flex;
@@ -328,12 +329,12 @@ body, p, .sub-heading, .text {
     gap: 20px;
     overflow-x: auto;
     scroll-behavior: smooth;
-    scrollbar-width: none; /* hide scrollbar (Firefox) */
-    -ms-overflow-style: none; /* hide scrollbar (IE/Edge) */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .gallery-track::-webkit-scrollbar {
-    display: none; /* hide scrollbar (Chrome/Safari) */
+    display: none;
 }
 
 .gallery-item {
@@ -382,46 +383,6 @@ body, p, .sub-heading, .text {
 .gallery-btn.next {
     right: 10px;
 }
-
-
-/* About Section */
-/*
-.about-section {
-    position: relative;
-    overflow: hidden;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    padding: 0 20px;
-}
-
-.about-bg-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    z-index: 0;
-    filter: brightness(0.6);
-}
-
-.about-text-container {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-*/
 
 /* About Section */
 .about-section {
@@ -489,7 +450,6 @@ body, p, .sub-heading, .text {
   }
 }
 
-
 /* Footer */
 .footer {
     padding-top: 10px;
@@ -508,13 +468,12 @@ body, p, .sub-heading, .text {
 
 .footer a::after {
   content: "↗";
-  font-family: "Inter", sans-serif; /* or your preferred text font */
+  font-family: "Inter", sans-serif;
   font-size: 0.9em;
   margin-left: 4px;
   display: inline-block;
   vertical-align: middle;
 }
-
 
 .footer p {
     margin: 5px 0;
