@@ -6,7 +6,9 @@
     <title>Francheska Guerrero - Resume</title>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* Fonts */
+        /* ---------------------- */
+        /* FONTS */
+        /* ---------------------- */
         @font-face {
             font-family: 'Helvetica Neue';
             src: url('/Users/Franny/Desktop/Portfolio/Fonts/HelveticaNeue/HelveticaNeueRoman.otf') format('truetype'),
@@ -15,18 +17,17 @@
             font-style: normal;
         }
 
-        body, p, li {
+        h1, h2, h3, h4, h5, h6, .title, .heading {
+            font-family: 'Helvetica Neue', serif;
+        }
+
+        body, p, li, .sub-heading, .text {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
             color: #111;
-            background-color: #f9f9f9;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Helvetica Neue', serif;
-            margin-bottom: 10px;
+            background-color: #fff; /* changed to white */
         }
 
         a {
@@ -38,7 +39,9 @@
             text-decoration: underline;
         }
 
-        /* Header */
+        /* ---------------------- */
+        /* HEADER NAVIGATION */
+        /* ---------------------- */
         .site-header {
             display: flex;
             justify-content: space-between;
@@ -60,9 +63,9 @@
 
         #home-link {
             font-weight: bold;
-            font-size: 18px;
-            color: black;
             text-decoration: none;
+            color: black;
+            font-size: 18px;
         }
 
         .right-links {
@@ -76,7 +79,9 @@
             font-size: 16px;
         }
 
-        /* Page header */
+        /* ---------------------- */
+        /* PAGE HEADER */
+        /* ---------------------- */
         .page-header {
             text-align: center;
             padding: 40px 20px 30px;
@@ -91,7 +96,9 @@
             font-size: 16px;
         }
 
-        /* Sections */
+        /* ---------------------- */
+        /* SECTIONS */
+        /* ---------------------- */
         section {
             max-width: 900px;
             margin: 20px auto;
@@ -133,22 +140,29 @@
             margin-bottom: 10px;
         }
 
-        /* Skills */
         .skills ul {
             columns: 2;
         }
 
-        /* Responsive */
+        /* ---------------------- */
+        /* RESPONSIVE */
+        /* ---------------------- */
         @media (max-width: 768px) {
-            .page-header h1 { font-size: 36px; }
-            .skills ul { columns: 1; }
-            .right-links { gap: 20px; }
+            .page-header h1 {
+                font-size: 36px;
+            }
+            .skills ul {
+                columns: 1;
+            }
+            .right-links {
+                gap: 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Persistent Header Navigation -->
     <header class="site-header">
         <div class="header-links">
             <a href="index.html" id="home-link">Francheska Guerrero</a>
@@ -172,70 +186,58 @@
         </p>
     </div>
 
-    <!-- Summary -->
+    <!-- Summary Section -->
     <section>
         <h2>Summary</h2>
-        <p>Data-focused digital strategist with 3+ years of experience bridging analytics and marketing to deliver measurable business outcomes. Skilled in designing measurement frameworks, activating data-driven campaigns, predictive modeling, and translating insights into actionable strategies. Proficient in SQL, Tableau, Excel, Python, GA4, Brandwatch, Meta Ads Manager, and Google Ads. Demonstrated success in campaign optimization, audience segmentation, and KPI-driven growth. Recent Data Analytics and Python certifications include capstone projects leveraging SQL, Tableau, and predictive analytics.</p>
+        <p>Data-focused digital strategist with 3+ years of experience bridging analytics and marketing to deliver data-driven business outcomes. Skilled in designing measurement frameworks, activating data-driven campaigns, and translating complex insights into actionable strategies. Experienced in audience segmentation, predictive modeling, and KPI-driven optimization, with proven results in client retention, revenue growth, and campaign performance. Recent certifications in Data Analytics and Python, including capstone projects in SQL, Tableau, and predictive analytics, demonstrate a strong foundation for enterprise-level data strategy.</p>
     </section>
 
-    <!-- Professional Experience -->
+    <!-- Professional Experience Section -->
     <section>
         <h2>Professional Experience</h2>
-
         <div class="job">
             <h3 class="job-title">Social Media Marketing Manager – Mochee Digital, Miami, FL</h3>
             <p class="job-dates">May 2022 – Present</p>
             <ul>
-                <li>Spearheaded design and implementation of data-driven measurement frameworks aligning KPIs to client objectives using SQL, Tableau, and Excel.</li>
-                <li>Partnered with cross-functional stakeholders to translate analytics into actionable business strategies, driving ROI improvements.</li>
-                <li>Led audience segmentation and funnel analysis, boosting client retention by 25% and upsells by 15%.</li>
-                <li>Executed AI-powered paid media optimizations and A/B tests, achieving a 3.94 ROAS for a national film festival campaign.</li>
-                <li>Developed integrated multi-channel messaging frameworks, increasing campaign reach by 1,567% and impressions by 2,238%.</li>
-                <li>Synthesized performance data to provide strategic recommendations during high-pressure client scenarios.</li>
-                <li>Collaborated on trend analysis and predictive modeling projects to identify actionable insights for marketing strategy.</li>
+                <li>Designed and implemented data-driven measurement frameworks, aligning KPIs to client objectives and ensuring accurate reporting across platforms (SQL, Tableau, Excel).</li>
+                <li>Partnered with cross-functional stakeholders to translate complex analytics into actionable business strategies, guiding campaign adjustments and ROI improvements.</li>
+                <li>Led audience segmentation and funnel analysis to optimize campaigns, driving a 25% increase in client retention and 15% increase in upsells.</li>
+                <li>Executed data-driven marketing activations, including AI-powered paid media optimization and A/B testing, achieving a 3.94 ROAS for a national film festival campaign.</li>
+                <li>Developed integrated multi-channel messaging frameworks, leveraging insights to increase campaign reach by 1,567% and impressions by 2,238%.</li>
+                <li>Synthesized performance data to provide strategic recommendations, enabling proactive decision-making during high-pressure client crises.</li>
+                <li>Collaborated on trend analysis and predictive modeling projects, identifying actionable patterns to inform future marketing and business strategy.</li>
             </ul>
         </div>
     </section>
 
-    <!-- Education -->
-    <section>
-        <h2>Education & Certifications</h2>
-
+    <!-- Education Section -->
+    <section class="education">
+        <h2>Education</h2>
         <div>
-            <h3>BrainStation – Data Analyst Certification (DAC™)</h3>
-            <p class="job-dates">Jan – Mar 2025</p>
-            <p>Capstone: Evaluated 20+ years of Canada’s trade data using Excel, SQL, and Tableau to model policy impacts on GDP and trade balance.</p>
+            <h3>Brainstation – Data Analyst Certification (DAC™)</h3>
+            <p class="job-dates">January – March 2025</p>
+            <p>Capstone: Analyzed 20+ years of Canada’s trade data using Excel, SQL, and Tableau, evaluating tariff impacts on GDP and trade balance to model policy outcomes.</p>
         </div>
-
         <div>
-            <h3>BrainStation – Python Certification (PPC™)</h3>
-            <p class="job-dates">Mar – Apr 2025</p>
-            <p>Capstone: Built Python workflows in Jupyter for e-commerce data analysis. Identified trends, product popularity, and review sentiment for ML recommendations.</p>
+            <h3>Brainstation – Python Certification (PPC™)</h3>
+            <p class="job-dates">March – April 2025</p>
+            <p>Capstone: Built Python workflows in Jupyter to clean/analyze e-commerce data. Identified purchase trends, product popularity, and review sentiment to guide future ML recommendations.</p>
         </div>
-
         <div>
             <h3>University of Florida, Gainesville, FL</h3>
-            <p class="job-dates">Aug 2018 – May 2022</p>
+            <p class="job-dates">August 2018 – May 2022</p>
             <p>BS, Media Production, Management, and Technology, Magna Cum Laude, GPA: 3.6</p>
         </div>
     </section>
 
-    <!-- Skills -->
+    <!-- Skills Section -->
     <section class="skills">
         <h2>Skills</h2>
         <ul>
             <li><strong>Data Strategy & Analytics:</strong> Measurement frameworks, KPI alignment, audience segmentation, predictive modeling, trend analysis, A/B testing, campaign optimization.</li>
-            <li><strong>Technical Tools:</strong> SQL, Tableau, Excel (pivot tables), Python, Jupyter, Google Analytics, Brandwatch, Meta Ads Manager, Google Ads.</li>
+            <li><strong>Technical Tools & Languages:</strong> SQL, Python, Tableau, Excel (pivot tables), Jupyter, Google Analytics, Brandwatch, Meta Ads Manager, Google Ads.</li>
             <li><strong>Consulting & Communication:</strong> Stakeholder reporting, data storytelling, cross-functional collaboration, campaign recommendations.</li>
-        </ul>
-    </section>
-
-    <!-- Optional Projects (Portfolio) -->
-    <section>
-        <h2>Portfolio & Projects</h2>
-        <ul>
-            <li><a href="https://github.com/francheska123/francheska123" target="_blank">GitHub Portfolio</a> – Python, SQL, and Tableau projects analyzing marketing and e-commerce datasets.</li>
-            <li><a href="https://fromticalinda.substack.com/" target="_blank">Substack Writing</a> – Data-driven storytelling and marketing insights.</li>
+            <li><strong>Languages:</strong> English (native), Spanish (fluent)</li>
         </ul>
     </section>
 
