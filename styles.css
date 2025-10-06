@@ -467,8 +467,8 @@ body, p, .sub-heading, .text {
 }
 
 .footer a::after {
-  content: "\2197"; /* Unicode arrow pointing top-right */
-  font-family: "Inter", sans-serif; /* ensures font is applied */
+  content: "\2197"; /* Unicode top-right arrow */
+  font-family: "Inter", sans-serif; /* forces font, prevents emoji */
   font-weight: normal;
   font-style: normal;
   font-size: 0.9em;
