@@ -1,6 +1,11 @@
 /* Import fonts from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&family=Inter:wght@400;600&display=swap');
 
+.hero-headline {
+    /* add this one line */
+    word-break: keep-all;
+}
+
 @font-face {
     font-family: 'Helvetica Neue';
     src: url('/Users/Franny/Desktop/Portfolio/Fonts/HelveticaNeue/HelveticaNeueRoman.otf') format('truetype'),

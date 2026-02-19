@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Francheska Guerrero — Product Strategist</title>
@@ -89,15 +89,15 @@
 
         /* ── HERO ── */
         .hero {
-            min-height: 15vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 80px 48px 60px;
-            position: relative;
-            overflow: hidden;
-            background: var(--black);
-        }
+        min-height: 15vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 60px 48px;
+        position: relative;
+        overflow: hidden;
+        background: var(--black);
+    }
 
         /* dot grid overlay */
         .hero::before {
@@ -123,14 +123,14 @@
         }
 
         .hero-headline {
-            font-family: var(--serif);
-            font-size: clamp(3rem, 7vw, 6.5rem);
-            line-height: 1.05;
-            color: var(--white);
-            max-width: 1000px;
-            position: relative;
-            z-index: 2;
-        }
+        font-family: var(--serif);
+        font-size: clamp(2.4rem, 4.1vw, 3.8rem);
+        line-height: 1.1;
+        color: var(--white);
+        max-width: 1100px;
+        position: relative;
+        z-index: 2;
+}
 
         .hero-headline em {
             font-style: italic;
@@ -151,7 +151,6 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
-
 
         /* hide old sub/cta — now moved below hero */
         .hero-sub, .hero-cta { display: none; }
@@ -657,9 +656,7 @@
 
 <!-- ── HERO ── -->
 <section class="hero">
-    <h1 class="hero-headline">
-        I help robotics and tech companies go from <em>technical spec</em> to <em>human story</em><span class="cursor"></span>
-    </h1>
+    <h1 class="hero-headline"></h1>
 </section>
 
 <!-- ── HERO INTRO STRIP ── -->
@@ -832,20 +829,82 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    // Mobile menu
+
+    // ─────────────────────────────────────────
+    // 1. TYPING EFFECT — hero headline
+    // em: true = pink italic, em: false = white normal
+    // ─────────────────────────────────────────
+    const headline = document.querySelector(".hero-headline");
+    if (headline) {
+        const parts = [
+            { text: "I help robotics and tech companies go ",      em: false },
+            { text: " from ",                                      em: false },
+            { text: "technical spec",                              em: true  },
+            { text: " to ",                                        em: false },
+            { text: "human story",                                 em: true  },
+        ];
+
+        const speed = 38;
+        headline.innerHTML = '<span class="cursor"></span>';
+        const cursor = headline.querySelector(".cursor");
+        let partIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+            if (partIndex >= parts.length) return;
+
+            const part = parts[partIndex];
+            let currentSpan = cursor.previousSibling;
+            const isNewWord = charIndex === 0 || part.text[charIndex - 1] === " ";
+
+            if (isNewWord || !currentSpan || currentSpan.dataset.part !== String(partIndex)) {
+                currentSpan = document.createElement("span");
+                currentSpan.dataset.part = String(partIndex);
+                if (part.em) {
+                    currentSpan.style.fontStyle = "italic";
+                    currentSpan.style.color = "var(--pink)";
+                }
+                headline.insertBefore(currentSpan, cursor);
+            }
+
+            currentSpan.textContent += part.text[charIndex];
+            charIndex++;
+
+            if (charIndex >= part.text.length) {
+                partIndex++;
+                charIndex = 0;
+            }
+
+            if (partIndex < parts.length) {
+                setTimeout(type, speed);
+            }
+        }
+
+        setTimeout(type, 600); // ← this was missing too
+    } // ← this closing brace was missing
+
+
+    // ─────────────────────────────────────────
+    // 2. MOBILE MENU — hamburger toggle
+    // ─────────────────────────────────────────
     const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
+    const navLinks   = document.querySelector(".nav-links");
+
     if (menuToggle && navLinks) {
+        menuToggle.setAttribute("aria-expanded", "false");
+
         menuToggle.addEventListener("click", () => {
             const isActive = navLinks.classList.toggle("active");
             menuToggle.setAttribute("aria-expanded", String(isActive));
         });
+
         navLinks.querySelectorAll("a").forEach(a => {
             a.addEventListener("click", () => {
                 navLinks.classList.remove("active");
                 menuToggle.setAttribute("aria-expanded", "false");
             });
         });
+
         document.addEventListener("keydown", (e) => {
             if (e.key === "Escape" && navLinks.classList.contains("active")) {
                 navLinks.classList.remove("active");
@@ -854,14 +913,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Gallery carousel
-    const track = document.querySelector(".gallery-track");
+
+    // ─────────────────────────────────────────
+    // 3. GALLERY CAROUSEL — scroll buttons
+    // ─────────────────────────────────────────
+    const track   = document.querySelector(".gallery-track");
     const prevBtn = document.querySelector(".gallery-btn.prev");
     const nextBtn = document.querySelector(".gallery-btn.next");
+
     if (track && prevBtn && nextBtn) {
-        nextBtn.addEventListener("click", () => track.scrollBy({ left: 310, behavior: "smooth" }));
+        nextBtn.addEventListener("click", () => track.scrollBy({ left:  310, behavior: "smooth" }));
         prevBtn.addEventListener("click", () => track.scrollBy({ left: -310, behavior: "smooth" }));
     }
+
 });
 </script>
 
