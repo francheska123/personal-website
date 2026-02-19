@@ -3,114 +3,802 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francheska Guerrero Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Francheska Guerrero — Product Strategist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ── RESET & BASE ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --pink: #ff9ece;
+            --pink-dim: #ff9ece55;
+            --black: #0a0a0a;
+            --off-black: #111111;
+            --off-white: #f5f3ef;
+            --white: #ffffff;
+            --mono: 'DM Mono', monospace;
+            --serif: 'DM Serif Display', serif;
+            --sans: 'Instrument Sans', sans-serif;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            background: var(--black);
+            color: var(--white);
+            font-family: var(--sans);
+        }
+
+        /* ── DOT GRID UTILITY ── */
+        .dot-grid {
+            background-image: radial-gradient(circle, #ffffff18 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+
+        /* ── HEADER ── */
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 48px;
+            background: var(--black);
+            border-bottom: 1px solid #ffffff22;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: color 0.2s;
+        }
+        .logo:hover { color: var(--pink); }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        .nav-links a {
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            color: #aaa;
+            text-decoration: none;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--pink); }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 1px solid #ffffff33;
+            color: white;
+            padding: 6px 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 15vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 48px 60px;
+            position: relative;
+            overflow: hidden;
+            background: var(--black);
+        }
+
+        /* dot grid overlay */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, #ffffff28 1.5px, transparent 1.5px);
+            background-size: 28px 28px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-tag {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--pink);
+            margin-bottom: 36px;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+        }
+
+        .hero-headline {
+            font-family: var(--serif);
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            line-height: 1.05;
+            color: var(--white);
+            max-width: 1000px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-headline em {
+            font-style: italic;
+            color: var(--pink);
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 0.8em;
+            background: var(--pink);
+            margin-left: 3px;
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+
+        /* hide old sub/cta — now moved below hero */
+        .hero-sub, .hero-cta { display: none; }
+
+        /* ── HERO INTRO STRIP (replaces sub + cta inside hero) ── */
+        .hero-intro {
+            background: var(--off-black);
+            border-bottom: 1px solid #ffffff10;
+            padding: 52px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .hero-intro-text {
+            font-size: 1.05rem;
+            color: #999;
+            line-height: 1.75;
+            max-width: 575px;
+        }
+
+        .hero-intro-text strong { color: var(--white); font-weight: 500; }
+
+        .hero-intro-cta {
+            display: flex;
+            gap: 14px;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--black);
+            background: var(--pink);
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { background: #ffb8de; transform: translateY(-2px); }
+
+        .btn-secondary {
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: transparent;
+            border: 1px solid #ffffff33;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .btn-secondary:hover { border-color: var(--pink); color: var(--pink); transform: translateY(-2px); }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── SKILLS TICKER ── */
+        .ticker-wrap {
+            background: var(--off-black);
+            border-top: 1px solid #ffffff15;
+            border-bottom: 1px solid #ffffff15;
+            padding: 14px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .ticker-track {
+            display: inline-flex;
+            gap: 0;
+            animation: ticker 35s linear infinite;
+        }
+
+        .ticker-track:hover { animation-play-state: paused; }
+
+        .ticker-item {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #888;
+            padding: 0 24px;
+            transition: color 0.2s;
+        }
+
+        .ticker-item:hover { color: var(--pink); }
+
+        .ticker-dot {
+            color: var(--pink);
+            font-size: 0.6rem;
+            padding: 0 4px;
+            opacity: 0.6;
+        }
+
+        @keyframes ticker {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ── CLIENT SECTION ── */
+        .clients-section {
+            padding: 70px 48px;
+            background: var(--black);
+            border-bottom: 1px solid #ffffff10;
+        }
+
+        .section-label {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--pink);
+            margin-bottom: 40px;
+        }
+
+        .client-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px 48px;
+            align-items: center;
+        }
+
+        .client-logos a {
+            opacity: 0.45;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        .client-logos a:hover { opacity: 1; }
+
+        .client-logos img {
+            height: 36px;
+            max-width: 130px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        /* ── WORK SECTION ── */
+        .work-section {
+            padding: 100px 48px;
+            background: var(--off-black);
+            position: relative;
+        }
+
+        .work-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, #ffffff08 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
+        }
+
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .work-title {
+            font-family: var(--serif);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.05;
+            color: var(--white);
+        }
+
+        .work-title em { color: var(--pink); font-style: italic; }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .work-card {
+            background: #161616;
+            padding: 40px 36px;
+            text-decoration: none;
+            color: var(--white);
+            border: 1px solid #ffffff08;
+            transition: background 0.3s, border-color 0.3s, transform 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: block;
+        }
+
+        .work-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 2px;
+            background: var(--pink);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .work-card:hover::before { transform: scaleX(1); }
+        .work-card:hover { background: #1e1e1e; border-color: #ffffff18; }
+
+        .work-card-num {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            color: var(--pink);
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .work-card-title {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            line-height: 1.2;
+            margin-bottom: 14px;
+            color: var(--white);
+        }
+
+        .work-card-desc {
+            font-size: 0.88rem;
+            color: #888;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .work-card-arrow {
+            font-size: 1.2rem;
+            color: var(--pink);
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+        .work-card:hover .work-card-arrow { transform: translate(4px, -4px); }
+
+        /* ── ABOUT STRIP ── */
+        .about-strip {
+            padding: 100px 48px;
+            background: var(--black);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-strip-text h2 {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            line-height: 1.1;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .about-strip-text h2 em { color: var(--pink); font-style: italic; }
+
+        .about-strip-text p {
+            font-size: 1rem;
+            color: #999;
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+
+        .about-strip-text p strong { color: var(--white); font-weight: 500; }
+
+        .about-strip-text a.inline-link {
+            color: var(--pink);
+            text-decoration: none;
+            border-bottom: 1px solid var(--pink-dim);
+            transition: border-color 0.2s;
+        }
+        .about-strip-text a.inline-link:hover { border-color: var(--pink); }
+
+        .about-strip-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+        }
+
+        .stat-card {
+            background: var(--off-black);
+            padding: 32px 28px;
+            border: 1px solid #ffffff08;
+        }
+
+        .stat-num {
+            font-family: var(--serif);
+            font-size: 2.8rem;
+            color: var(--pink);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #666;
+        }
+
+        /* ── ON-SITE GALLERY ── */
+        .gallery-section {
+            padding: 80px 0 80px 48px;
+            background: var(--off-black);
+            border-top: 1px solid #ffffff10;
+        }
+
+        .gallery-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 48px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-section h2 {
+            font-family: var(--serif);
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            color: var(--white);
+        }
+
+        .gallery-carousel {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-right: 48px;
+        }
+        .gallery-track::-webkit-scrollbar { display: none; }
+
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 280px;
+            height: 340px;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            filter: grayscale(20%);
+        }
+        .gallery-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
+
+        .gallery-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--pink);
+            color: var(--black);
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            z-index: 5;
+            transition: background 0.2s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gallery-btn:hover { background: #ffb8de; transform: translateY(-50%) scale(1.1); }
+        .gallery-btn.prev { left: 8px; }
+        .gallery-btn.next { right: 56px; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--black);
+            border-top: 1px solid #ffffff15;
+            padding: 48px 48px 32px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand .logo-foot {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            color: var(--white);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            color: #555;
+            text-transform: uppercase;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .footer-links a {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--pink); }
+
+        .footer-bottom {
+            border-top: 1px solid #ffffff10;
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            color: #444;
+            text-transform: uppercase;
+        }
+
+        /* ── MOBILE ── */
+        @media (max-width: 900px) {
+            .site-header { padding: 18px 24px; }
+            .menu-toggle { display: block; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0; right: 0;
+                background: var(--black);
+                border-bottom: 1px solid #ffffff15;
+                padding: 20px 24px;
+                gap: 1.5rem;
+            }
+            .nav-links.active { display: flex; }
+
+            .hero { padding: 60px 24px 40px; min-height: 80vh; }
+            .hero::after { display: none; }
+            .hero-intro { padding: 36px 24px; flex-direction: column; align-items: flex-start; gap: 28px; }
+
+            .clients-section { padding: 50px 24px; }
+            .work-section { padding: 60px 24px; }
+            .work-grid { grid-template-columns: 1fr; }
+            .about-strip { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+            .gallery-section { padding: 60px 0 60px 24px; }
+            .gallery-section-header { padding-right: 24px; }
+            .gallery-btn.next { right: 24px; }
+            footer { padding: 40px 24px 24px; }
+            .footer-inner { flex-direction: column; gap: 24px; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+        }
+    </style>
 </head>
-
 <body>
-        <header class="site-header">
-    <a href="index.html" class="logo">Francheska Guerrero</a>
-    
-    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
 
+<!-- ── HEADER ── -->
+<header class="site-header">
+    <a href="index.html" class="logo">Francheska Guerrero</a>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="resume.html">Resume</a>
         <a href="https://fromticalinda.substack.com/">Writing</a>
         <a href="about.html">About</a>
     </nav>
-    </header>
+</header>
 
+<!-- ── HERO ── -->
+<section class="hero">
+    <h1 class="hero-headline">
+        I help robotics and tech companies go from <em>technical spec</em> to <em>human story</em><span class="cursor"></span>
+    </h1>
+</section>
 
-    <!-- Landing Page Content -->
-    <div class="landing-page">
-        <div class="header-arrow">↓</div> <!-- arrow pointing to hello -->
-        <div class="header-container"> 
-            <h3 class="little-heading">hello! (˵ •̀ ᴗ - ˵ )</h3>
-            <h2 class="main-heading">I'm <em>Francheska Guerrero</em> <br> a product-minded analyst building <br> at the intersection of <em>data</em>, <em>strategy</em> and <em>execution</em>.</h2>
-            <p class="introduction">
-                <p>Looking for my next challenge in the Robotics/AI space.</p>
-             <!--   <a href="https://mochee.com/">Currently at Mochee Digital.</a><br> -->
-            </p>
+<!-- ── HERO INTRO STRIP ── -->
+<div class="hero-intro">
+    <p class="hero-intro-text">
+        <!-- ✏️ YOUR SUPPORTING LINE HERE -->
+        <strong>Finding the story. Building the audience. Creating systems to sustain both.</strong><br>
+        Looking to partner with early-stage robotics and automation companies on positioning and go-to-market strategy.
+    </p>
+    <div class="hero-intro-cta">
+        <a href="https://www.notion.so/Product-Data-Work-2fc05867f9288039af2cd151dcd59518?source=copy_link" class="btn-primary" target="_blank" rel="noopener">View My Work →</a>
+        <a href="https://www.linkedin.com/in/francheskaguerrero/" class="btn-secondary" target="_blank" rel="noopener">Connect on LinkedIn</a>
+    </div>
+</div>
+
+<!-- ── SKILLS TICKER ── -->
+<div class="ticker-wrap" aria-label="Skills">
+    <div class="ticker-track">
+        <!-- First set -->
+        <span class="ticker-item">SQL</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Python</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Tableau</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">A/B Testing</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Go-to-Market Strategy</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Market Research</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Product Roadmaps</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Competitive Analysis</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Jupyter Notebook</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Stakeholder Alignment</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Google Analytics</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">User Behavior Analysis</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Vibe Coding</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Spanish · Italian</span><span class="ticker-dot">✦</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="ticker-item">SQL</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Python</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Tableau</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">A/B Testing</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Go-to-Market Strategy</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Market Research</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Product Roadmaps</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Competitive Analysis</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Jupyter Notebook</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Stakeholder Alignment</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Google Analytics</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">User Behavior Analysis</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Vibe Coding</span><span class="ticker-dot">✦</span>
+        <span class="ticker-item">Spanish · Italian</span><span class="ticker-dot">✦</span>
+    </div>
+</div>
+
+<!-- ── CLIENTS ── -->
+<section class="clients-section">
+    <p class="section-label">Brands I've moved the needle for</p>
+    <div class="client-logos">
+        <a href="https://moss.com/" target="_blank" rel="noopener"><img src="Assets/Moss-Logo.png" alt="Moss Construction"></a>
+        <a href="https://www.flavia.com/" target="_blank" rel="noopener"><img src="Assets/Flavia-Logo.png" alt="Flavia"></a>
+        <a href="https://www.bluehousesalmon.com/" target="_blank" rel="noopener"><img src="Assets/Bluehouse-Logo.png" alt="Bluehouse"></a>
+        <a href="https://www.miamibookfair.com/" target="_blank" rel="noopener"><img src="Assets/MiamiBookFair-Logo.png" alt="Miami Book Fair"></a>
+        <a href="https://www.torquebyryder.com/" target="_blank" rel="noopener"><img src="Assets/TorquebyRyder-Logo.png" alt="Torque by Ryder"></a>
+        <a href="https://www.edgehousemiami.com/" target="_blank" rel="noopener"><img src="Assets/EdgeHouse-Logo.png" alt="Edge House Miami"></a>
+        <a href="https://www.miamifilmfestival.com/" target="_blank" rel="noopener"><img src="Assets/MiamiFilmFestival-Logo.png" alt="Miami Film Festival"></a>
+        <a href="https://www.wyndhamhotels.com/wyndham-alltra" target="_blank" rel="noopener"><img src="Assets/WyndhamAlltra-Logo.png" alt="Wyndham Alltra"></a>
+        <a href="https://omiami.org/" target="_blank" rel="noopener"><img src="Assets/O,Miami-Logo.png" alt="O, Miami"></a>
+    </div>
+</section>
+
+<!-- ── WORK ── -->
+<section class="work-section">
+    <div class="work-header">
+        <h2 class="work-title">Explore<br>my <em>work</em></h2>
+    </div>
+    <div class="work-grid">
+        <a href="https://www.notion.so/Product-Data-Work-2fc05867f9288039af2cd151dcd59518?source=copy_link" class="work-card" target="_blank" rel="noopener">
+            <p class="work-card-num">01</p>
+            <h3 class="work-card-title">Product & Data Work</h3>
+            <p class="work-card-desc">Market research, competitive analysis, roadmap support, and go-to-market execution for brands across industries.</p>
+            <span class="work-card-arrow">↗</span>
+        </a>
+        <a href="https://github.com/francheska123/francheska123" class="work-card" target="_blank" rel="noopener">
+            <p class="work-card-num">02</p>
+            <h3 class="work-card-title">Technical Skills</h3>
+            <p class="work-card-desc">SQL, Python, Tableau, A/B testing, and more. Code as a tool for asking better questions.</p>
+            <span class="work-card-arrow">↗</span>
+        </a>
+        <a href="https://fromticalinda.substack.com/" class="work-card" target="_blank" rel="noopener">
+            <p class="work-card-num">03</p>
+            <h3 class="work-card-title">Storytelling</h3>
+            <p class="work-card-desc">Writing that bridges technical insight and human experience — the same muscle I use for every client.</p>
+            <span class="work-card-arrow">↗</span>
+        </a>
+    </div>
+</section>
+
+<!-- ── ABOUT STRIP ── -->
+<section class="about-strip">
+    <div class="about-strip-text">
+        <h2>The person<br>behind the <em>strategy</em></h2>
+        <!-- ✏️ YOUR ABOUT COPY HERE — this is a great place for your bridge paragraph -->
+        <p>
+            <strong>Francheska Guerrero</strong> is a product and marketing strategist with 3+ years driving go-to-market strategy, product positioning, and cross-functional launches from concept to execution.
+        </p>
+        <p>
+            She specializes in translating complex technical products into stories that resonate — not just with insiders, but with the people whose lives those products will actually change.
+        </p>
+        <p>
+            Now looking to bring that lens to early-stage robotics and automation companies. <a href="about.html" class="inline-link">Read more →</a>
+        </p>
+    </div>
+    <div class="about-strip-stats">
+        <div class="stat-card">
+            <div class="stat-num">8.7M</div>
+            <div class="stat-label">Views on platform relaunch in 5 months</div>
         </div>
-        <div class="header-image"></div>
-    </div>
-
-
-<!-- Client Logo Carousel -->
-<section class="client-carousel">
-    <div class="carousel-track">
-        <h1>My Clients:</h1>
-        <a href="https://moss.com/" target="_blank" rel="noopener noreferrer">
-            <img src="Assets/Moss-Logo.png" alt="Moss Construction">
-        </a>
-        <a href="https://www.flavia.com/" target="_blank" rel="noopener noreferrer">
-             <img src="Assets/Flavia-Logo.png" alt="Flavia">
-        </a>
-        <a href="https://www.bluehousesalmon.com/" target="_blank" rel="noopener noreferrer">
-             <img src="Assets/Bluehouse-Logo.png" alt="Bluehouse">
-        </a>
-        <a href="https://www.miamibookfair.com/" target="_blank" rel="noopener noreferrer">
-             <img src="Assets/MiamiBookFair-Logo.png" alt="Miami Book Fair">
-        </a>
-        <a href="https://www.torquebyryder.com/" target="_blank" rel="noopener noreferrer">
-             <img src="Assets/TorquebyRyder-Logo.png" alt="Torque by Ryder">
-        </a>
-        <a href="https://www.edgehousemiami.com/" target="_blank" rel="noopener noreferrer">
-             <img src="Assets/EdgeHouse-Logo.png" alt="Edge House Miami">
-        </a>
-        <a href="https://www.miamifilmfestival.com/" target="_blank" rel="noopener noreferrer">
-             <img src="Assets/MiamiFilmFestival-Logo.png" alt="Miami Film Festival">
-        </a>
-        <a href="https://www.wyndhamhotels.com/wyndham-alltra" target="_blank" rel="noopener noreferrer">
-             <img src="Assets/WyndhamAlltra-Logo.png" alt="Wyndham Alltra">
-        </a>
-        <a href="https://omiami.org/" target="_blank" rel="noopener noreferrer">
-             <img src="Assets/O,Miami-Logo.png" alt="O, Miami">
-        </a>
+        <div class="stat-card">
+            <div class="stat-num">3.94×</div>
+            <div class="stat-label">ROAS — $25K revenue from $7.5K investment</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-num">600%</div>
+            <div class="stat-label">Engagement increase QoQ</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-num">34.6%</div>
+            <div class="stat-label">Avg reach among new user segments</div>
+        </div>
     </div>
 </section>
 
-<!-- Project Spotlight-->
-<section class="project-spotlight">
-        <h3 id ="project-spotlight-header">explore my work</h3>
-        <a href="https://www.notion.so/Product-Data-Work-2fc05867f9288039af2cd151dcd59518?source=copy_link" target="_blank" rel="noopener noreferrer">
-        <h1 id="line-one">Product & Data Work,</h1>
-    </a>
-
-    <a href="https://github.com/francheska123/francheska123" target="_blank" rel="noopener noreferrer">
-        <h1 id="line-two">Technical Skills,</h1>
-    </a>
-
-    <a href="https://fromticalinda.substack.com/" target="_blank" rel="noopener noreferrer">
-        <h1 id="line-three">Storytelling,</h1>
-    </a>
-
-   <h1 id="line-four">& More→</h1>
-
-<!-- Divider Line -->
-    <div class="project-divider"></div>
-
-<!-- Project Spotlight Paragraph-->
- <p>Francheska Guerrero is a digital storyteller and data strategist with a passion for translating complex insights into meaningful experiences. With a foundation in analytics and a creative eye for strategy, she bridges the gap between numbers and narrative to craft campaigns, content, and brand stories that resonate. Curious and forward-thinking, she thrives on exploring new tools and perspectives to connect audiences, drive impact, and inspire action.
- </p>
-
-<a href="about.html">
-    <p id="project-spotlight-paragraph-read-more">Read More→</p>
-</a>
-
-</section>
-
-<section class="on-site-gallery">
-    <h2>On-Site Client Work</h2>
-
+<!-- ── GALLERY ── -->
+<section class="gallery-section">
+    <div class="gallery-section-header">
+        <h2>On-Site Client Work</h2>
+    </div>
     <div class="gallery-carousel">
         <button class="gallery-btn prev" aria-label="Previous">‹</button>
-
         <div class="gallery-track">
             <div class="gallery-item"><img src="Assets/Gallery/Coworkers.jpeg" alt="Coworkers"></div>
-            <div class="gallery-item"><img src="Assets/Gallery/Flavia-Shoot-Pic.jpeg" alt="Flavia Shoot Pic"></div>
+            <div class="gallery-item"><img src="Assets/Gallery/Flavia-Shoot-Pic.jpeg" alt="Flavia Shoot"></div>
             <div class="gallery-item"><img src="Assets/Gallery/Miami-Book-Fair-Group.jpeg" alt="Miami Book Fair"></div>
             <div class="gallery-item"><img src="Assets/Gallery/Miami-Marathon.jpeg" alt="Miami Marathon"></div>
             <div class="gallery-item"><img src="Assets/Gallery/29-Wynwood-Flag.png" alt="29 Wynwood Flag"></div>
@@ -118,50 +806,62 @@
             <div class="gallery-item"><img src="Assets/Gallery/Flavia-Shoot-Screen.jpeg" alt="Flavia Shoot Screen"></div>
             <div class="gallery-item"><img src="Assets/Gallery/Miami-Book-Fair-Solo.jpeg" alt="Miami Book Fair Solo"></div>
         </div>
-
         <button class="gallery-btn next" aria-label="Next">›</button>
     </div>
 </section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="index.html" class="logo-foot">Francheska Guerrero</a>
+            <p>Product & Marketing Strategist · Open to Relocation</p>
+        </div>
+        <div class="footer-links">
+            <a href="resume.html">Resume</a>
+            <a href="https://www.linkedin.com/in/francheskaguerrero/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/francheska123/francheska123" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://fromticalinda.substack.com/" target="_blank" rel="noopener">Substack</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>Designed & developed by Francheska Guerrero</p>
+        <p>© 2025</p>
+    </div>
+</footer>
+
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
+    // Mobile menu
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+            const isActive = navLinks.classList.toggle("active");
+            menuToggle.setAttribute("aria-expanded", String(isActive));
+        });
+        navLinks.querySelectorAll("a").forEach(a => {
+            a.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+            });
+        });
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && navLinks.classList.contains("active")) {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+            }
+        });
+    }
+
+    // Gallery carousel
     const track = document.querySelector(".gallery-track");
     const prevBtn = document.querySelector(".gallery-btn.prev");
     const nextBtn = document.querySelector(".gallery-btn.next");
-
     if (track && prevBtn && nextBtn) {
-        nextBtn.addEventListener("click", () => {
-            track.scrollBy({ left: 350, behavior: "smooth" });
-        });
-
-        prevBtn.addEventListener("click", () => {
-            track.scrollBy({ left: -350, behavior: "smooth" });
-        });
+        nextBtn.addEventListener("click", () => track.scrollBy({ left: 310, behavior: "smooth" }));
+        prevBtn.addEventListener("click", () => track.scrollBy({ left: -310, behavior: "smooth" }));
     }
-});
-</script>
-
-
-
-
-<!--Footer-->
-    <footer>
-        <section class="footer">
-            <p><a href="resume.html" target="_blank" rel="noopener noreferrer">Resume</a></p>
-            <p><a href="https://www.linkedin.com/in/francheskaguerrero/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
-            <p><a href="https://github.com/francheska123/francheska123" target="_blank" rel="noopener noreferrer">GitHub</a></p>
-            <p><a href="https://fromticalinda.substack.com/" target="_blank" rel="noopener noreferrer">SubStack</a></p>
-        </section>
-        <p id="copyright"> Designed and Developed by Francheska Guerrero</p>
-    </footer>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-
-    menuToggle.addEventListener("click", function() {
-        navLinks.classList.toggle("active");
-    });
 });
 </script>
 

@@ -1,62 +1,66 @@
-<script>
 document.addEventListener("DOMContentLoaded", () => {
-  // --- DEBUG: show what's present (remove in production) ---
-  console.log("DOM loaded");
-  console.log("project-square count:", document.querySelectorAll(".project-square").length);
-  console.log("gallery-item count:", document.querySelectorAll(".gallery-item").length);
-  console.log("menu-toggle:", !!document.querySelector(".menu-toggle"));
-  console.log("nav-links:", !!document.querySelector(".nav-links"));
 
-  // --- Make project squares clickable (use data-link attribute) ---
-  // If you actually use .gallery-item in HTML, change the selector accordingly.
-  const projectSelector = ".project-square"; // change to ".gallery-item" if that's what you use
-  const projects = document.querySelectorAll(projectSelector);
-  projects.forEach(square => {
-    square.style.cursor = "pointer";
-    square.addEventListener("click", () => {
-      const link = square.dataset.link || square.getAttribute("data-link");
-      if (link) {
-        window.location.href = link;
-      } else {
-        console.warn("No data-link found on", square);
-      }
-    });
-  });
+    // ── Typing effect ──
+    const headline = document.querySelector(".hero-headline");
+    if (headline) {
+        const parts = [
+            { text: "I help robotics and tech companies go from ", em: false },
+            { text: "technical spec", em: true },
+            { text: " to ", em: false },
+            { text: "human story", em: true },
+        ];
 
-  // --- Mobile menu toggle (safe guards) ---
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
+        headline.innerHTML = '<span class="cursor"></span>';
+        const cursor = headline.querySelector(".cursor");
+        let partIndex = 0;
+        let charIndex = 0;
+        const speed = 38;
 
-  if (menuToggle && navLinks) {
-    // accessibility
-    menuToggle.setAttribute("aria-expanded", "false");
-
-    menuToggle.addEventListener("click", () => {
-      const isActive = navLinks.classList.toggle("active");
-      menuToggle.setAttribute("aria-expanded", String(isActive));
-    });
-
-    // close menu when a nav link is clicked (mobile)
-    navLinks.querySelectorAll("a").forEach(a => {
-      a.addEventListener("click", () => {
-        if (navLinks.classList.contains("active")) {
-          navLinks.classList.remove("active");
-          menuToggle.setAttribute("aria-expanded", "false");
+        function type() {
+            if (partIndex >= parts.length) return;
+            const part = parts[partIndex];
+            const span = document.createElement("span");
+            if (part.em) span.style.cssText = "font-style:italic; color:var(--pink)";
+            span.textContent = part.text[charIndex];
+            headline.insertBefore(span, cursor);
+            charIndex++;
+            if (charIndex >= part.text.length) { partIndex++; charIndex = 0; }
+            setTimeout(type, speed);
         }
-      });
-    });
 
-    // close on Escape
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && navLinks.classList.contains("active")) {
-        navLinks.classList.remove("active");
+        setTimeout(type, 600);
+    }
+
+    // ── Mobile menu ──
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    if (menuToggle && navLinks) {
         menuToggle.setAttribute("aria-expanded", "false");
-      }
-    });
-  } else {
-    // don't throw if elements aren't present
-    if (!menuToggle) console.info("menuToggle not found (ok if not on this page)");
-    if (!navLinks) console.info("navLinks not found (ok if not on this page)");
-  }
+        menuToggle.addEventListener("click", () => {
+            const isActive = navLinks.classList.toggle("active");
+            menuToggle.setAttribute("aria-expanded", String(isActive));
+        });
+        navLinks.querySelectorAll("a").forEach(a => {
+            a.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+            });
+        });
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && navLinks.classList.contains("active")) {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+            }
+        });
+    }
+
+    // ── Gallery carousel ──
+    const track = document.querySelector(".gallery-track");
+    const prevBtn = document.querySelector(".gallery-btn.prev");
+    const nextBtn = document.querySelector(".gallery-btn.next");
+    if (track && prevBtn && nextBtn) {
+        nextBtn.addEventListener("click", () => track.scrollBy({ left: 310, behavior: "smooth" }));
+        prevBtn.addEventListener("click", () => track.scrollBy({ left: -310, behavior: "smooth" }));
+    }
+
 });
-</script>
