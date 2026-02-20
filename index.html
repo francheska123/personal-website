@@ -89,7 +89,7 @@
 
         /* ── HERO ── */
         .hero {
-        min-height: 15vh;
+        min-height: 45vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -283,7 +283,7 @@
         }
 
         .client-logos a {
-            opacity: 0.45;
+            opacity: 0.7;
             transition: opacity 0.3s;
             display: flex;
             align-items: center;
@@ -291,10 +291,22 @@
         .client-logos a:hover { opacity: 1; }
 
         .client-logos img {
-            height: 36px;
-            max-width: 130px;
+            height: auto;
+            max-height: 50px;
+            max-width: 140px;
             object-fit: contain;
+            mix-blend-mode: screen;
             filter: brightness(0) invert(1);
+        }
+
+        .logo-lg img {
+            max-height: 90px;
+            max-width: 120px;
+        }
+
+        .logo-sm img {
+            max-height: 40px;
+            max-width: 110px;
         }
 
         /* ── WORK SECTION ── */
@@ -712,15 +724,19 @@
 <section class="clients-section">
     <p class="section-label">Brands I've moved the needle for</p>
     <div class="client-logos">
-        <a href="https://moss.com/" target="_blank" rel="noopener"><img src="Assets/Moss-Logo.png" alt="Moss Construction"></a>
+        <a href="https://moss.com/" target="_blank" rel="noopener" class="logo-lg"><img src="Assets/Moss-Logo.png" alt="Moss Construction"></a>
         <a href="https://www.flavia.com/" target="_blank" rel="noopener"><img src="Assets/Flavia-Logo.png" alt="Flavia"></a>
         <a href="https://www.bluehousesalmon.com/" target="_blank" rel="noopener"><img src="Assets/Bluehouse-Logo.png" alt="Bluehouse"></a>
-        <a href="https://www.miamibookfair.com/" target="_blank" rel="noopener"><img src="Assets/MiamiBookFair-Logo.png" alt="Miami Book Fair"></a>
-        <a href="https://www.torquebyryder.com/" target="_blank" rel="noopener"><img src="Assets/TorquebyRyder-Logo.png" alt="Torque by Ryder"></a>
+        <a href="https://www.miamibookfair.com/" target="_blank" rel="noopener" class="logo-lg"><img src="Assets/MiamiBookFair-Logo.png" alt="Miami Book Fair"></a>
+        <a href="https://www.torquebyryder.com/" target="_blank" rel="noopener" class="logo-sm"><img src="Assets/TorquebyRyder-Logo.png" alt="Torque by Ryder"></a>
         <a href="https://www.edgehousemiami.com/" target="_blank" rel="noopener"><img src="Assets/EdgeHouse-Logo.png" alt="Edge House Miami"></a>
         <a href="https://www.miamifilmfestival.com/" target="_blank" rel="noopener"><img src="Assets/MiamiFilmFestival-Logo.png" alt="Miami Film Festival"></a>
-        <a href="https://www.wyndhamhotels.com/wyndham-alltra" target="_blank" rel="noopener"><img src="Assets/WyndhamAlltra-Logo.png" alt="Wyndham Alltra"></a>
-        <a href="https://omiami.org/" target="_blank" rel="noopener"><img src="Assets/O,Miami-Logo.png" alt="O, Miami"></a>
+        <a href="https://www.wyndhamhotels.com/wyndham-alltra" target="_blank" rel="noopener" class="logo-lg"><img src="Assets/WyndhamAlltra-Logo.png" alt="Wyndham Alltra"></a>
+        <a href="https://omiami.org/" target="_blank" rel="noopener" class="logo-lg"><img src="Assets/OMiami-Logo.png" alt="O, Miami"></a>
+        <a href="https://bhsmiami.com/" target="_blank" rel="noopener"><img src="Assets/BHS-Logo.png" alt="BHS"></a>
+        <a href="https://www.sarasotaluxurycondos.com/" target="_blank" rel="noopener" class="logo-sm"><img src="Assets/LisaOtte-Logo.png" alt="Lisa Otte"></a>
+        <a href="https://www.thescottsdaleresort.com/" target="_blank" rel="noopener"><img src="Assets/Scottsdale-Logo.png" alt="Scottsdale"></a>
+
     </div>
 </section>
 
