@@ -89,7 +89,7 @@
 
         /* ── HERO ── */
         .hero {
-        min-height: 45vh;
+        min-height: 90vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -124,7 +124,7 @@
 
         .hero-headline {
         font-family: var(--serif);
-        font-size: clamp(2.4rem, 4.1vw, 3.8rem);
+        font-size: clamp(2.6rem, 4.3vw, 4.0rem);
         line-height: 1.1;
         color: var(--white);
         max-width: 1100px;
@@ -150,6 +150,18 @@
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
+        }
+
+        .hero-quip {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            color: #555;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.8s ease;
         }
 
         /* hide old sub/cta — now moved below hero */
@@ -669,6 +681,7 @@
 <!-- ── HERO ── -->
 <section class="hero">
     <h1 class="hero-headline"></h1>
+    <p class="hero-quip">And yes, I have people skills. ;)</p>
 </section>
 
 <!-- ── HERO INTRO STRIP ── -->
@@ -839,7 +852,7 @@
     </div>
     <div class="footer-bottom">
         <p>Designed & developed by Francheska Guerrero</p>
-        <p>© 2025</p>
+        <p>© 2026</p>
     </div>
 </footer>
 
@@ -893,6 +906,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (partIndex < parts.length) {
                 setTimeout(type, speed);
+            } else {
+                // typing is done — fade in the quip
+                const quip = document.querySelector(".hero-quip");
+                if (quip) setTimeout(() => { quip.style.opacity = "1"; }, 400);
             }
         }
 
