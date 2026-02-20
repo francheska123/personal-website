@@ -3,79 +3,548 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francheska Guerrero Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Francheska Guerrero — About</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ── RESET & BASE ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --pink: #ff9ece;
+            --pink-dim: #ff9ece55;
+            --black: #0a0a0a;
+            --off-black: #111111;
+            --white: #ffffff;
+            --mono: 'DM Mono', monospace;
+            --serif: 'DM Serif Display', serif;
+            --sans: 'Instrument Sans', sans-serif;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            background: var(--black);
+            color: var(--white);
+            font-family: var(--sans);
+        }
+
+        /* ── HEADER ── */
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 48px;
+            background: var(--black);
+            border-bottom: 1px solid #ffffff22;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: color 0.2s;
+        }
+        .logo:hover { color: var(--pink); }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        .nav-links a {
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            color: #aaa;
+            text-decoration: none;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--pink); }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 1px solid #ffffff33;
+            color: white;
+            padding: 6px 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* ── HERO ── */
+        .about-hero {
+            padding: 100px 48px 80px;
+            background: var(--black);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, #ffffff18 1.5px, transparent 1.5px);
+            background-size: 28px 28px;
+            pointer-events: none;
+        }
+
+        .about-hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .about-hero-label {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--pink);
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeUp 0.6s 0.1s ease forwards;
+        }
+
+        .about-hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            line-height: 1.05;
+            color: var(--white);
+            max-width: 800px;
+            opacity: 0;
+            animation: fadeUp 0.7s 0.2s ease forwards;
+        }
+
+        .about-hero h1 em {
+            font-style: italic;
+            color: var(--pink);
+        }
+
+        /* ── MAIN SPLIT ── */
+        .about-main {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 2px;
+            border-top: 1px solid #ffffff10;
+        }
+
+        /* LEFT — bio */
+        .about-bio {
+            padding: 80px 64px 80px 48px;
+            background: var(--off-black);
+            opacity: 0;
+            animation: fadeUp 0.7s 0.35s ease forwards;
+        }
+
+        .about-bio p {
+            font-size: 1.05rem;
+            color: #999;
+            line-height: 1.85;
+            margin-bottom: 22px;
+        }
+
+        .about-bio p:last-of-type { margin-bottom: 0; }
+
+        .about-bio p strong {
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        .about-bio .inline-link {
+            color: var(--pink);
+            text-decoration: none;
+            border-bottom: 1px solid var(--pink-dim);
+            transition: border-color 0.2s;
+        }
+        .about-bio .inline-link:hover { border-color: var(--pink); }
+
+        /* RIGHT — photo */
+        .about-photo-col {
+            position: relative;
+            background: #0d0d0d;
+            opacity: 0;
+            animation: fadeUp 0.7s 0.45s ease forwards;
+        }
+
+        .about-photo-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            filter: grayscale(15%);
+            transition: filter 0.4s ease;
+            min-height: 500px;
+        }
+
+        .about-photo-col:hover img { filter: grayscale(0%); }
+
+        /* photo caption */
+        .photo-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-family: var(--mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #ffffff66;
+        }
+
+        /* ── QUICK FACTS STRIP ── */
+        .facts-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid #ffffff10;
+            border-bottom: 1px solid #ffffff10;
+        }
+
+        .fact-item {
+            padding: 40px 48px;
+            border-right: 1px solid #ffffff10;
+            background: var(--black);
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards;
+        }
+        .fact-item:last-child { border-right: none; }
+        .fact-item:nth-child(1) { animation-delay: 0.5s; }
+        .fact-item:nth-child(2) { animation-delay: 0.6s; }
+        .fact-item:nth-child(3) { animation-delay: 0.7s; }
+
+        .fact-label {
+            font-family: var(--mono);
+            font-size: 0.63rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--pink);
+            margin-bottom: 10px;
+        }
+
+        .fact-value {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            color: var(--white);
+            line-height: 1.3;
+        }
+
+        /* ── CONNECT SECTION ── */
+        .connect-section {
+            padding: 100px 48px;
+            background: var(--off-black);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .connect-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, #ffffff08 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
+        }
+
+        .connect-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .connect-label {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--pink);
+            margin-bottom: 20px;
+        }
+
+        .connect-section h2 {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.1;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .connect-section h2 em {
+            font-style: italic;
+            color: var(--pink);
+        }
+
+        .connect-section p {
+            font-size: 0.95rem;
+            color: #777;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .connect-links {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--black);
+            background: var(--pink);
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { background: #ffb8de; transform: translateY(-2px); }
+
+        .btn-secondary {
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: transparent;
+            border: 1px solid #ffffff33;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: border-color 0.2s, color 0.2s, transform 0.2s;
+        }
+        .btn-secondary:hover { border-color: var(--pink); color: var(--pink); transform: translateY(-2px); }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--black);
+            border-top: 1px solid #ffffff15;
+            padding: 48px 48px 32px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand .logo-foot {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            color: var(--white);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            color: #555;
+            text-transform: uppercase;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .footer-links a {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--pink); }
+
+        .footer-bottom {
+            border-top: 1px solid #ffffff10;
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            color: #444;
+            text-transform: uppercase;
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── MOBILE ── */
+        @media (max-width: 900px) {
+            .site-header { padding: 18px 24px; }
+            .menu-toggle { display: block; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0; right: 0;
+                background: var(--black);
+                border-bottom: 1px solid #ffffff15;
+                padding: 20px 24px;
+                gap: 1.5rem;
+            }
+            .nav-links.active { display: flex; }
+
+            .about-hero { padding: 60px 24px 48px; }
+            .about-main { grid-template-columns: 1fr; }
+            .about-bio { padding: 48px 24px; }
+            .about-photo-col img { min-height: 360px; max-height: 420px; }
+
+            .facts-strip { grid-template-columns: 1fr; }
+            .fact-item { border-right: none; border-bottom: 1px solid #ffffff10; }
+            .fact-item:last-child { border-bottom: none; }
+
+            .connect-section { padding: 64px 24px; }
+            footer { padding: 40px 24px 24px; }
+            .footer-inner { flex-direction: column; gap: 24px; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+        }
+    </style>
 </head>
-
 <body>
-    <header class="site-header">
-    <a href="index.html" class="logo">Francheska Guerrero</a>
-    
-    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
 
+<!-- ── HEADER ── -->
+<header class="site-header">
+    <a href="index.html" class="logo">Francheska Guerrero</a>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="resume.html">Resume</a>
-        <a href="https://fromticalinda.substack.com/">Writing</a>
-        <a href="about.html">About</a>
+        <a href="https://fromticalinda.substack.com/" target="_blank" rel="noopener">Writing</a>
+        <a href="about.html" class="active">About</a>
     </nav>
-    </header>
+</header>
 
-
-    <section class="about-section">
-  <div class="about-content">
-    <h2><em>About</em></h2>
-    <p><strong>Francheska Guerrero</strong> is a West Palm Beach-based digital storyteller and marketing strategist. Her work bridges the worlds of creativity and analytics, transforming insights into campaigns that connect people and ideas in meaningful ways.</p>
-    <p>With a background in media production and data strategy, Francheska brings both narrative and numbers into focus—crafting strategies that inspire action and lasting connection.</p>
-    <p>Let's connect on <a href="https://www.linkedin.com/in/francheskaguerrero/">LinkedIn</a>.</p>
-  </div>
-
-  <div class="about-image">
-    <img src="Assets/AboutPageHeadshot.jpeg" alt="Francheska Guerrero portrait">
-  </div>
-</section>
-
-<!-- About Content -->
-<!-- <section class="about-section">
-    <video autoplay muted loop playsinline class="about-bg-video">
-        <source src="Assets/About-Gif.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-    <div class="about-text-container">
-        <div class="header-arrow">↓</div>
-        <h3 class="little-heading">hello! (˵ •̀ ᴗ - ˵ )</h3>
-        <h2 class="main-heading">
-            I'm <em>Francheska Guerrero</em>, a digital storyteller blending marketing strategy and data analytics to create <em>meaningful</em> stories that <em>connect</em> people and ideas.
-        </h2>
-        <p class="introduction">
-            <a href="https://mochee.com/">Currently at Mochee Digital.</a>
-        </p>
+<!-- ── HERO ── -->
+<section class="about-hero">
+    <div class="about-hero-inner">
+        <p class="about-hero-label">About me</p>
+        <h1>The person behind<br>the <em>strategy.</em></h1>
     </div>
 </section>
--->
 
+<!-- ── MAIN SPLIT: BIO + PHOTO ── -->
+<div class="about-main">
+    <div class="about-bio">
+        <p>
+            <strong>Francheska Guerrero</strong> is a product marketing strategist who lives on a horse farm in South Florida. When she's not hanging with her horses, or going to Jiu Jitsu practice she's watching French New Wave films and reading 19th century books.
+        </p>
+        <p>
+            She spent 3+ years at Mochee Digital translating complex, technical products into stories that actually land for aquaculture brands, cultural institutions, hospitality groups, and everything in between. Her superpower is sitting at the intersection of data and narrative: fluent in both SQL and a well-crafted sentence.
+        </p>
+        <p>
+            Right now, she's looking to bring that lens to <strong>early-stage robotics and automation companies</strong>, organizations building genuinely hard things that the world hasn't figured out how to talk about yet. That's exactly the problem she loves solving.
+        </p>
+    </div>
+    <div class="about-photo-col">
+        <img src="Assets/AboutPageHeadshot.jpeg" alt="Francheska Guerrero">
+        <span class="photo-caption">Loxahatchee, FL</span>
+    </div>
+</div>
 
-<!--Footer-->
-    <footer>
-        <section class="footer">
-            <p><a href="resume.html" target="_blank" rel="noopener noreferrer">Resume</a></p>
-            <p><a href="https://www.linkedin.com/in/francheskaguerrero/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
-            <p><a href="https://github.com/francheska123/francheska123" target="_blank" rel="noopener noreferrer">GitHub</a></p>
-            <p><a href="https://fromticalinda.substack.com/" target="_blank" rel="noopener noreferrer">SubStack</a></p>
-        </section>
-        <p id="copyright"> Designed and Developed by Francheska Guerrero</p>
-    </footer>
+<!-- ── QUICK FACTS ── -->
+<div class="facts-strip">
+    <div class="fact-item">
+        <div class="fact-label">Based in</div>
+        <div class="fact-value">South Florida<br><span style="font-size:0.85rem; color:#666; font-family:var(--sans);">Open to relocation</span></div>
+    </div>
+    <div class="fact-item">
+        <div class="fact-label">Background</div>
+        <div class="fact-value">Media Production &amp;<br>Data Analytics</div>
+    </div>
+    <div class="fact-item">
+        <div class="fact-label">Currently exploring</div>
+        <div class="fact-value">Robotics &amp; Automation<br>Go-to-Market Strategy</div>
+    </div>
+</div>
+
+<!-- ── CONNECT ── -->
+<section class="connect-section">
+    <div class="connect-inner">
+        <p class="connect-label">Let's talk</p>
+        <h2>Got a hard product<br>to <em>explain?</em></h2>
+        <p>Whether you're pre-launch, mid-pivot, or just need someone who can read a data table and write a compelling deck — let's connect.</p>
+        <div class="connect-links">
+            <a href="https://www.linkedin.com/in/francheskaguerrero/" class="btn-primary" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+            <a href="mailto:francheskamguerrero@gmail.com" class="btn-secondary">Send an Email</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── */
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a href="index.html" class="logo-foot">Francheska Guerrero</a>
+            <p>Product & Marketing Strategist · Open to Relocation</p>
+        </div>
+        <div class="footer-links">
+            <a href="resume.html">Resume</a>
+            <a href="https://www.linkedin.com/in/francheskaguerrero/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/francheska123/francheska123" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://fromticalinda.substack.com/" target="_blank" rel="noopener">Substack</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>Designed & developed by Francheska Guerrero</p>
+        <p>© 2026</p>
+    </div>
+</footer>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
+    const navLinks   = document.querySelector(".nav-links");
 
-    menuToggle.addEventListener("click", function() {
-        navLinks.classList.toggle("active");
-    });
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+            const isActive = navLinks.classList.toggle("active");
+            menuToggle.setAttribute("aria-expanded", String(isActive));
+        });
+        navLinks.querySelectorAll("a").forEach(a => {
+            a.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+            });
+        });
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && navLinks.classList.contains("active")) {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+            }
+        });
+    }
 });
 </script>
 
