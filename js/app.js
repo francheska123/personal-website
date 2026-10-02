@@ -1,6 +1,12 @@
 (function () {
   "use strict";
 
+  function track(name) {
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: name, title: name, event: true });
+    }
+  }
+
   var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var isSmallScreen = function () { return window.innerWidth <= 700; };
 
@@ -271,6 +277,7 @@
   }
 
   function openWindow(id) {
+    track("open-window/" + id);
     if (openWindows[id]) {
       focusWindow(id);
       return;
@@ -383,6 +390,17 @@
       }
     }
   }
+
+  document.addEventListener("click", function (e) {
+    var link = e.target.closest("a[href]");
+    if (!link) return;
+    var href = link.getAttribute("href");
+    if (href.indexOf("mailto:") === 0) {
+      track("outbound/email");
+    } else if (/^https?:/.test(href) && link.hostname !== location.hostname) {
+      track("outbound/" + link.hostname);
+    }
+  });
 
   function showWelcome() {
     var source = document.getElementById("tpl-welcome");
@@ -511,6 +529,7 @@
     var backBtn = scope.querySelector(".work-back");
 
     function openCard(card) {
+      track("case-study/" + card.getAttribute("data-project"));
       detailTag.textContent = card.querySelector(".work-tag").textContent;
       detailTitle.textContent = card.querySelector("h3").textContent;
       detailBody.innerHTML = card.querySelector(".work-full").innerHTML;
