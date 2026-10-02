@@ -1,966 +1,692 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francheska Guerrero — Product Strategist</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        /* ── RESET & BASE ── */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        :root {
-            --pink: #ff9ece;
-            --pink-dim: #ff9ece55;
-            --black: #0a0a0a;
-            --off-black: #111111;
-            --off-white: #f5f3ef;
-            --white: #ffffff;
-            --mono: 'DM Mono', monospace;
-            --serif: 'DM Serif Display', serif;
-            --sans: 'Instrument Sans', sans-serif;
-        }
-
-        html, body {
-            width: 100%;
-            overflow-x: hidden;
-            background: var(--black);
-            color: var(--white);
-            font-family: var(--sans);
-        }
-
-        /* ── DOT GRID UTILITY ── */
-        .dot-grid {
-            background-image: radial-gradient(circle, #ffffff18 1px, transparent 1px);
-            background-size: 28px 28px;
-        }
-
-        /* ── HEADER ── */
-        .site-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 22px 48px;
-            background: var(--black);
-            border-bottom: 1px solid #ffffff22;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(8px);
-        }
-
-        .logo {
-            font-family: var(--serif);
-            font-size: 1.1rem;
-            color: var(--white);
-            text-decoration: none;
-            letter-spacing: 0.01em;
-            transition: color 0.2s;
-        }
-        .logo:hover { color: var(--pink); }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-        }
-        .nav-links a {
-            font-family: var(--mono);
-            font-size: 0.78rem;
-            color: #aaa;
-            text-decoration: none;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: var(--pink); }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: 1px solid #ffffff33;
-            color: white;
-            padding: 6px 12px;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        /* ── HERO ── */
-        .hero {
-        min-height: 90vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 60px 48px;
-        position: relative;
-        overflow: hidden;
-        background: var(--black);
-    }
-
-        /* dot grid overlay */
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(circle, #ffffff28 1.5px, transparent 1.5px);
-            background-size: 28px 28px;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .hero-tag {
-            font-family: var(--mono);
-            font-size: 0.68rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--pink);
-            margin-bottom: 36px;
-            position: relative;
-            z-index: 2;
-            opacity: 0;
-        }
-
-        .hero-headline {
-        font-family: var(--serif);
-        font-size: clamp(2.6rem, 4.3vw, 4.0rem);
-        line-height: 1.1;
-        color: var(--white);
-        max-width: 1100px;
-        position: relative;
-        z-index: 2;
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Francheska Guerrero</title>
+<meta name="description" content="Francheska Guerrero, Strategy and Market Intelligence Analyst. A personal desktop of case studies, experience, and ways to get in touch.">
+<link rel="canonical" href="https://francheskaguerrero.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Francheska Guerrero | Strategy & Market Intelligence Analyst">
+<meta property="og:description" content="A personal desktop of case studies, experience, and ways to get in touch.">
+<meta property="og:url" content="https://francheskaguerrero.com/">
+<meta property="og:image" content="https://francheskaguerrero.com/img/profile.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Francheska Guerrero | Strategy & Market Intelligence Analyst">
+<meta name="twitter:description" content="A personal desktop of case studies, experience, and ways to get in touch.">
+<meta name="twitter:image" content="https://francheskaguerrero.com/img/profile.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Francheska Guerrero",
+  "url": "https://francheskaguerrero.com/",
+  "image": "https://francheskaguerrero.com/img/profile.png",
+  "jobTitle": "Strategy & Market Intelligence Analyst",
+  "sameAs": [
+    "https://www.linkedin.com/in/francheskaguerrero/",
+    "https://github.com/francheska123",
+    "https://fromticalinda.substack.com/"
+  ]
 }
-
-        .hero-headline em {
-            font-style: italic;
-            color: var(--pink);
-        }
-
-        .cursor {
-            display: inline-block;
-            width: 2px;
-            height: 0.8em;
-            background: var(--pink);
-            margin-left: 3px;
-            vertical-align: middle;
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        .hero-quip {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.12em;
-            color: #555;
-            margin-top: 20px;
-            position: relative;
-            z-index: 2;
-            opacity: 0;
-            transition: opacity 0.8s ease;
-        }
-
-        /* hide old sub/cta — now moved below hero */
-        .hero-sub, .hero-cta { display: none; }
-
-        /* ── HERO INTRO STRIP (replaces sub + cta inside hero) ── */
-        .hero-intro {
-            background: var(--off-black);
-            border-bottom: 1px solid #ffffff10;
-            padding: 52px 48px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 48px;
-            flex-wrap: wrap;
-        }
-
-        .hero-intro-text {
-            font-size: 1.05rem;
-            color: #999;
-            line-height: 1.75;
-            max-width: 575px;
-        }
-
-        .hero-intro-text strong { color: var(--white); font-weight: 500; }
-
-        .hero-intro-cta {
-            display: flex;
-            gap: 14px;
-            flex-shrink: 0;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            font-family: var(--mono);
-            font-size: 0.78rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--black);
-            background: var(--pink);
-            padding: 14px 28px;
-            text-decoration: none;
-            border-radius: 2px;
-            transition: background 0.2s, transform 0.2s;
-        }
-        .btn-primary:hover { background: #ffb8de; transform: translateY(-2px); }
-
-        .btn-secondary {
-            font-family: var(--mono);
-            font-size: 0.78rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--white);
-            background: transparent;
-            border: 1px solid #ffffff33;
-            padding: 14px 28px;
-            text-decoration: none;
-            border-radius: 2px;
-            transition: border-color 0.2s, transform 0.2s;
-        }
-        .btn-secondary:hover { border-color: var(--pink); color: var(--pink); transform: translateY(-2px); }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ── SKILLS TICKER ── */
-        .ticker-wrap {
-            background: var(--off-black);
-            border-top: 1px solid #ffffff15;
-            border-bottom: 1px solid #ffffff15;
-            padding: 14px 0;
-            overflow: hidden;
-            white-space: nowrap;
-        }
-
-        .ticker-track {
-            display: inline-flex;
-            gap: 0;
-            animation: ticker 35s linear infinite;
-        }
-
-        .ticker-track:hover { animation-play-state: paused; }
-
-        .ticker-item {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #888;
-            padding: 0 24px;
-            transition: color 0.2s;
-        }
-
-        .ticker-item:hover { color: var(--pink); }
-
-        .ticker-dot {
-            color: var(--pink);
-            font-size: 0.6rem;
-            padding: 0 4px;
-            opacity: 0.6;
-        }
-
-        @keyframes ticker {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* ── CLIENT SECTION ── */
-        .clients-section {
-            padding: 70px 48px;
-            background: var(--black);
-            border-bottom: 1px solid #ffffff10;
-        }
-
-        .section-label {
-            font-family: var(--mono);
-            font-size: 0.68rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--pink);
-            margin-bottom: 40px;
-        }
-
-        .client-logos {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 32px 48px;
-            align-items: center;
-        }
-
-        .client-logos a {
-            opacity: 0.7;
-            transition: opacity 0.3s;
-            display: flex;
-            align-items: center;
-        }
-        .client-logos a:hover { opacity: 1; }
-
-        .client-logos img {
-            height: auto;
-            max-height: 50px;
-            max-width: 140px;
-            object-fit: contain;
-            mix-blend-mode: screen;
-            filter: brightness(0) invert(1);
-        }
-
-        .logo-lg img {
-            max-height: 90px;
-            max-width: 120px;
-        }
-
-        .logo-sm img {
-            max-height: 40px;
-            max-width: 110px;
-        }
-
-        /* ── WORK SECTION ── */
-        .work-section {
-            padding: 100px 48px;
-            background: var(--off-black);
-            position: relative;
-        }
-
-        .work-section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(circle, #ffffff08 1px, transparent 1px);
-            background-size: 28px 28px;
-            pointer-events: none;
-        }
-
-        .work-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 60px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .work-title {
-            font-family: var(--serif);
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            line-height: 1.05;
-            color: var(--white);
-        }
-
-        .work-title em { color: var(--pink); font-style: italic; }
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .work-card {
-            background: #161616;
-            padding: 40px 36px;
-            text-decoration: none;
-            color: var(--white);
-            border: 1px solid #ffffff08;
-            transition: background 0.3s, border-color 0.3s, transform 0.3s;
-            position: relative;
-            overflow: hidden;
-            display: block;
-        }
-
-        .work-card::before {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0;
-            width: 100%; height: 2px;
-            background: var(--pink);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .work-card:hover::before { transform: scaleX(1); }
-        .work-card:hover { background: #1e1e1e; border-color: #ffffff18; }
-
-        .work-card-num {
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            letter-spacing: 0.15em;
-            color: var(--pink);
-            margin-bottom: 20px;
-            opacity: 0.8;
-        }
-
-        .work-card-title {
-            font-family: var(--serif);
-            font-size: 1.5rem;
-            line-height: 1.2;
-            margin-bottom: 14px;
-            color: var(--white);
-        }
-
-        .work-card-desc {
-            font-size: 0.88rem;
-            color: #888;
-            line-height: 1.6;
-            margin-bottom: 28px;
-        }
-
-        .work-card-arrow {
-            font-size: 1.2rem;
-            color: var(--pink);
-            transition: transform 0.2s;
-            display: inline-block;
-        }
-        .work-card:hover .work-card-arrow { transform: translate(4px, -4px); }
-
-        /* ── ABOUT STRIP ── */
-        .about-strip {
-            padding: 100px 48px;
-            background: var(--black);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .about-strip-text h2 {
-            font-family: var(--serif);
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            line-height: 1.1;
-            color: var(--white);
-            margin-bottom: 24px;
-        }
-
-        .about-strip-text h2 em { color: var(--pink); font-style: italic; }
-
-        .about-strip-text p {
-            font-size: 1rem;
-            color: #999;
-            line-height: 1.75;
-            margin-bottom: 16px;
-        }
-
-        .about-strip-text p strong { color: var(--white); font-weight: 500; }
-
-        .about-strip-text a.inline-link {
-            color: var(--pink);
-            text-decoration: none;
-            border-bottom: 1px solid var(--pink-dim);
-            transition: border-color 0.2s;
-        }
-        .about-strip-text a.inline-link:hover { border-color: var(--pink); }
-
-        .about-strip-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2px;
-        }
-
-        .stat-card {
-            background: var(--off-black);
-            padding: 32px 28px;
-            border: 1px solid #ffffff08;
-        }
-
-        .stat-num {
-            font-family: var(--serif);
-            font-size: 2.8rem;
-            color: var(--pink);
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-family: var(--mono);
-            font-size: 0.68rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #666;
-        }
-
-        /* ── ON-SITE GALLERY ── */
-        .gallery-section {
-            padding: 80px 0 80px 48px;
-            background: var(--off-black);
-            border-top: 1px solid #ffffff10;
-        }
-
-        .gallery-section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-right: 48px;
-            margin-bottom: 40px;
-        }
-
-        .gallery-section h2 {
-            font-family: var(--serif);
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
-            color: var(--white);
-        }
-
-        .gallery-carousel {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .gallery-track {
-            display: flex;
-            gap: 16px;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            padding-right: 48px;
-        }
-        .gallery-track::-webkit-scrollbar { display: none; }
-
-        .gallery-item {
-            flex: 0 0 auto;
-            width: 280px;
-            height: 340px;
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-            filter: grayscale(20%);
-        }
-        .gallery-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
-
-        .gallery-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--pink);
-            color: var(--black);
-            border: none;
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
-            font-size: 1.3rem;
-            cursor: pointer;
-            z-index: 5;
-            transition: background 0.2s, transform 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .gallery-btn:hover { background: #ffb8de; transform: translateY(-50%) scale(1.1); }
-        .gallery-btn.prev { left: 8px; }
-        .gallery-btn.next { right: 56px; }
-
-        /* ── FOOTER ── */
-        footer {
-            background: var(--black);
-            border-top: 1px solid #ffffff15;
-            padding: 48px 48px 32px;
-        }
-
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 40px;
-            margin-bottom: 48px;
-        }
-
-        .footer-brand .logo-foot {
-            font-family: var(--serif);
-            font-size: 1.4rem;
-            color: var(--white);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .footer-brand p {
-            font-family: var(--mono);
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            color: #555;
-            text-transform: uppercase;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 32px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .footer-links a {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #666;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .footer-links a:hover { color: var(--pink); }
-
-        .footer-bottom {
-            border-top: 1px solid #ffffff10;
-            padding-top: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-bottom p {
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            letter-spacing: 0.1em;
-            color: #444;
-            text-transform: uppercase;
-        }
-
-        /* ── MOBILE ── */
-        @media (max-width: 900px) {
-            .site-header { padding: 18px 24px; }
-            .menu-toggle { display: block; }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0; right: 0;
-                background: var(--black);
-                border-bottom: 1px solid #ffffff15;
-                padding: 20px 24px;
-                gap: 1.5rem;
-            }
-            .nav-links.active { display: flex; }
-
-            .hero { padding: 60px 24px 40px; min-height: 80vh; }
-            .hero::after { display: none; }
-            .hero-intro { padding: 36px 24px; flex-direction: column; align-items: flex-start; gap: 28px; }
-
-            .clients-section { padding: 50px 24px; }
-            .work-section { padding: 60px 24px; }
-            .work-grid { grid-template-columns: 1fr; }
-            .about-strip { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
-            .gallery-section { padding: 60px 0 60px 24px; }
-            .gallery-section-header { padding-right: 24px; }
-            .gallery-btn.next { right: 24px; }
-            footer { padding: 40px 24px 24px; }
-            .footer-inner { flex-direction: column; gap: 24px; }
-            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-        }
-    </style>
+</script>
+<link rel="stylesheet" href="css/style.css?v=27">
 </head>
 <body>
 
-<!-- ── HEADER ── -->
-<header class="site-header">
-    <a href="index.html" class="logo">Francheska Guerrero</a>
-    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-    <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="resume.html">Resume</a>
-        <a href="https://fromticalinda.substack.com/">Writing</a>
-        <a href="about.html">About</a>
+  <!-- Boot screen: CRT monitor, click/press a key to power on -->
+  <div id="boot-screen" role="status" aria-live="polite">
+    <div class="crt-monitor">
+      <span class="crt-led" aria-hidden="true"></span>
+      <div class="crt-screen">
+        <div id="boot-prompt">
+          <p class="boot-prompt-main">PRESS <kbd>SPACE</kbd> TO POWER ON</p>
+          <p class="boot-prompt-sub">or click anywhere<span class="blink">_</span></p>
+        </div>
+        <pre id="boot-text" hidden></pre>
+      </div>
+      <div class="crt-label" aria-hidden="true">
+        <span class="crt-label-name">FRANCHESKA SYSTEMS</span>
+        <span class="crt-label-spec">FS-2026 &middot; CRT-14</span>
+      </div>
+    </div>
+  </div>
+
+  <a class="skip-link" href="#desktop">Skip to content</a>
+
+  <!-- Menu bar -->
+  <header id="menubar">
+    <div class="start-wrap">
+      <button type="button" id="start-button" aria-haspopup="true" aria-expanded="false">
+        <span id="start-icon" aria-hidden="true">✨</span>
+        <span id="menubar-logo">francheska</span>
+      </button>
+      <div id="start-menu" hidden>
+        <div class="start-menu-sidebar" aria-hidden="true"><span>FRANCHESKA &middot; 2026</span></div>
+        <ul class="start-menu-list">
+          <li><button type="button" data-open="about"><span aria-hidden="true">🙂</span>About Me</button></li>
+          <li><button type="button" data-open="work"><span aria-hidden="true">🗂️</span>Work</button></li>
+          <li><button type="button" data-open="links"><span aria-hidden="true">🔗</span>Links</button></li>
+          <li><button type="button" data-open="contact"><span aria-hidden="true">✉️</span>Contact</button></li>
+          <li><button type="button" data-open="fortune"><span aria-hidden="true">🔮</span>Fortune.txt</button></li>
+          <li><button type="button" data-open="game"><span aria-hidden="true">☕</span>Lox Café</button></li>
+        </ul>
+      </div>
+    </div>
+    <nav id="menubar-nav" aria-label="Main">
+      <button type="button" data-open="about">About</button>
+      <button type="button" data-open="work">Work</button>
+      <button type="button" data-open="links">Links</button>
+      <button type="button" data-open="contact">Contact</button>
     </nav>
-</header>
+    <span id="menubar-clock" aria-hidden="true"></span>
+  </header>
 
-<!-- ── HERO ── -->
-<section class="hero">
-    <h1 class="hero-headline"></h1>
-    <p class="hero-quip">And yes, I have people skills. ;)</p>
-</section>
+  <!-- Desktop -->
+  <main id="desktop">
+    <div class="wallpaper-label">francheska_os v1.0</div>
 
-<!-- ── HERO INTRO STRIP ── -->
-<div class="hero-intro">
-    <p class="hero-intro-text">
-        <!-- ✏️ YOUR SUPPORTING LINE HERE -->
-        <strong>Finding the story. Building the audience. Creating systems to sustain both.</strong><br>
-        Looking to partner with early-stage robotics and automation companies on positioning and go-to-market strategy.
-    </p>
-    <div class="hero-intro-cta">
-        <a href="https://www.notion.so/Product-Data-Work-2fc05867f9288039af2cd151dcd59518?source=copy_link" class="btn-primary" target="_blank" rel="noopener">View My Work →</a>
-        <a href="https://www.linkedin.com/in/francheskaguerrero/" class="btn-secondary" target="_blank" rel="noopener">Connect on LinkedIn</a>
+    <div class="icons" role="list">
+      <button type="button" class="icon" data-open="about" role="listitem">
+        <span class="icon-glyph pixel-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <defs>
+              <linearGradient id="faceGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#faf3e7"/>
+                <stop offset="100%" stop-color="#e3c6a8"/>
+              </linearGradient>
+            </defs>
+            <circle cx="16" cy="16" r="13" fill="url(#faceGrad)" stroke="#3a1809" stroke-width="1.5"/>
+            <circle cx="11.5" cy="14.5" r="1.5" fill="#3a1809"/>
+            <circle cx="20.5" cy="14.5" r="1.5" fill="#3a1809"/>
+            <ellipse cx="9.5" cy="19" rx="2.4" ry="1.5" fill="#8a3e1f" opacity="0.4"/>
+            <ellipse cx="22.5" cy="19" rx="2.4" ry="1.5" fill="#8a3e1f" opacity="0.4"/>
+            <path d="M11 20.5 Q16 25 21 20.5" stroke="#3a1809" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <ellipse cx="11" cy="9" rx="4" ry="2.2" fill="#fff" opacity="0.5"/>
+          </svg>
+        </span>
+        <span class="icon-label">About Me</span>
+      </button>
+      <button type="button" class="icon" data-open="work" role="listitem">
+        <span class="icon-glyph pixel-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <defs>
+              <linearGradient id="folderBack" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#a8531f"/>
+                <stop offset="100%" stop-color="#8a3e1f"/>
+              </linearGradient>
+              <linearGradient id="folderFront" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#eaef8e"/>
+                <stop offset="100%" stop-color="#c7cf4d"/>
+              </linearGradient>
+            </defs>
+            <rect x="3" y="7" width="14" height="7" rx="2.5" fill="url(#folderBack)" stroke="#3a1809" stroke-width="1.5"/>
+            <rect x="3" y="11" width="26" height="17" rx="4" fill="url(#folderFront)" stroke="#3a1809" stroke-width="1.5"/>
+            <ellipse cx="9.5" cy="16" rx="4" ry="2.2" fill="#fff" opacity="0.45"/>
+          </svg>
+        </span>
+        <span class="icon-label">Work</span>
+      </button>
+      <button type="button" class="icon" data-open="links" role="listitem">
+        <span class="icon-glyph pixel-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <defs>
+              <linearGradient id="linkGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#8fd4f2"/>
+                <stop offset="100%" stop-color="#6ebfea"/>
+              </linearGradient>
+              <linearGradient id="linkGrad2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#4a7ba3"/>
+                <stop offset="100%" stop-color="#2a4d73"/>
+              </linearGradient>
+            </defs>
+            <rect x="4" y="13" width="14" height="10" rx="5" fill="none" stroke="url(#linkGrad2)" stroke-width="3.5"/>
+            <rect x="14" y="9" width="14" height="10" rx="5" fill="none" stroke="url(#linkGrad)" stroke-width="3.5"/>
+            <rect x="4" y="13" width="14" height="10" rx="5" fill="none" stroke="#3a1809" stroke-width="1.2"/>
+            <rect x="14" y="9" width="14" height="10" rx="5" fill="none" stroke="#3a1809" stroke-width="1.2"/>
+            <ellipse cx="19" cy="11.5" rx="2.6" ry="1.3" fill="#fff" opacity="0.5"/>
+          </svg>
+        </span>
+        <span class="icon-label">Links</span>
+      </button>
+      <button type="button" class="icon" data-open="contact" role="listitem">
+        <span class="icon-glyph pixel-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <defs>
+              <linearGradient id="envGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#faf3e7"/>
+                <stop offset="100%" stop-color="#e8dcc8"/>
+              </linearGradient>
+            </defs>
+            <rect x="3" y="8" width="26" height="18" rx="3.5" fill="url(#envGrad)" stroke="#3a1809" stroke-width="1.5"/>
+            <path d="M4 9.5 L16 19 L28 9.5" fill="none" stroke="#2a4d73" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <ellipse cx="9.5" cy="12" rx="3.5" ry="1.8" fill="#fff" opacity="0.5"/>
+          </svg>
+        </span>
+        <span class="icon-label">Contact</span>
+      </button>
+      <button type="button" class="icon" data-open="fortune" role="listitem">
+        <span class="icon-glyph pixel-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <defs>
+              <radialGradient id="ballGrad" cx="35%" cy="30%" r="70%">
+                <stop offset="0%" stop-color="#bfe4f7"/>
+                <stop offset="55%" stop-color="#6ebfea"/>
+                <stop offset="100%" stop-color="#2a4d73"/>
+              </radialGradient>
+            </defs>
+            <ellipse cx="16" cy="27" rx="8" ry="2.2" fill="#8a3e1f"/>
+            <rect x="12" y="24" width="8" height="3" rx="1.2" fill="#a8531f" stroke="#3a1809" stroke-width="1"/>
+            <circle cx="16" cy="15" r="11" fill="url(#ballGrad)" stroke="#3a1809" stroke-width="1.5"/>
+            <ellipse cx="11.5" cy="10" rx="3.6" ry="2" fill="#fff" opacity="0.55"/>
+            <path d="M24 6 l1 2 2 1 -2 1 -1 2 -1 -2 -2 -1 2 -1 z" fill="#dde35f"/>
+          </svg>
+        </span>
+        <span class="icon-label">Fortune.txt</span>
+      </button>
+      <button type="button" class="icon" data-open="game" role="listitem">
+        <span class="icon-glyph pixel-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <defs>
+              <linearGradient id="mugGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#faf3e7"/>
+                <stop offset="100%" stop-color="#e3c6a8"/>
+              </linearGradient>
+            </defs>
+            <ellipse cx="15" cy="27" rx="11" ry="2.3" fill="#e3c6a8" stroke="#3a1809" stroke-width="1.2"/>
+            <path d="M23 13 q6 0 6 5.5 q0 5.5 -6 5.5" fill="none" stroke="#3a1809" stroke-width="2.2" stroke-linecap="round"/>
+            <rect x="6" y="11" width="18" height="14" rx="3" fill="url(#mugGrad)" stroke="#3a1809" stroke-width="1.5"/>
+            <path d="M7.3 13 h15.4 q0.6 2.2 -1.1 3.4 h-13.2 q-1.7 -1.2 -1.1 -3.4 z" fill="#8a3e1f"/>
+            <path d="M11 9 q-1.5 -2 0 -4 M16 9 q-1.5 -2 0 -4" fill="none" stroke="#6ebfea" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+            <ellipse cx="9.3" cy="16.5" rx="2.6" ry="1.6" fill="#fff" opacity="0.45"/>
+          </svg>
+        </span>
+        <span class="icon-label">Lox Café</span>
+      </button>
     </div>
-</div>
+  </main>
 
-<!-- ── SKILLS TICKER ── -->
-<div class="ticker-wrap" aria-label="Skills">
-    <div class="ticker-track">
-        <!-- First set -->
-        <span class="ticker-item">SQL</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Python</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Tableau</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">A/B Testing</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Go-to-Market Strategy</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Market Research</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Product Roadmaps</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Competitive Analysis</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Jupyter Notebook</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Stakeholder Alignment</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Google Analytics</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">User Behavior Analysis</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Vibe Coding</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Spanish · Italian</span><span class="ticker-dot">✦</span>
-        <!-- Duplicate for seamless loop -->
-        <span class="ticker-item">SQL</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Python</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Tableau</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">A/B Testing</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Go-to-Market Strategy</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Market Research</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Product Roadmaps</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Competitive Analysis</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Jupyter Notebook</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Stakeholder Alignment</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Google Analytics</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">User Behavior Analysis</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Vibe Coding</span><span class="ticker-dot">✦</span>
-        <span class="ticker-item">Spanish · Italian</span><span class="ticker-dot">✦</span>
-    </div>
-</div>
+  <!-- Window templates (content lives here; JS clones into floating windows) -->
+  <div id="window-templates" hidden>
 
-<!-- ── CLIENTS ── -->
-<section class="clients-section">
-    <p class="section-label">Brands I've moved the needle for</p>
-    <div class="client-logos">
-        <a href="https://moss.com/" target="_blank" rel="noopener" class="logo-lg"><img src="Assets/Moss-Logo.png" alt="Moss Construction"></a>
-        <a href="https://www.flavia.com/" target="_blank" rel="noopener"><img src="Assets/Flavia-Logo.png" alt="Flavia"></a>
-        <a href="https://www.bluehousesalmon.com/" target="_blank" rel="noopener"><img src="Assets/Bluehouse-Logo.png" alt="Bluehouse"></a>
-        <a href="https://www.miamibookfair.com/" target="_blank" rel="noopener" class="logo-lg"><img src="Assets/MiamiBookFair-Logo.png" alt="Miami Book Fair"></a>
-        <a href="https://www.torquebyryder.com/" target="_blank" rel="noopener" class="logo-sm"><img src="Assets/TorquebyRyder-Logo.png" alt="Torque by Ryder"></a>
-        <a href="https://www.edgehousemiami.com/" target="_blank" rel="noopener"><img src="Assets/EdgeHouse-Logo.png" alt="Edge House Miami"></a>
-        <a href="https://www.miamifilmfestival.com/" target="_blank" rel="noopener"><img src="Assets/MiamiFilmFestival-Logo.png" alt="Miami Film Festival"></a>
-        <a href="https://www.wyndhamhotels.com/wyndham-alltra" target="_blank" rel="noopener" class="logo-lg"><img src="Assets/WyndhamAlltra-Logo.png" alt="Wyndham Alltra"></a>
-        <a href="https://omiami.org/" target="_blank" rel="noopener" class="logo-lg"><img src="Assets/OMiami-Logo.png" alt="O, Miami"></a>
-        <a href="https://bhsmiami.com/" target="_blank" rel="noopener"><img src="Assets/BHS-Logo.png" alt="BHS"></a>
-        <a href="https://www.sarasotaluxurycondos.com/" target="_blank" rel="noopener" class="logo-sm"><img src="Assets/LisaOtte-Logo.png" alt="Lisa Otte"></a>
-        <a href="https://www.thescottsdaleresort.com/" target="_blank" rel="noopener"><img src="Assets/Scottsdale-Logo.png" alt="Scottsdale"></a>
+    <template id="tpl-about">
+      <h2>About Me</h2>
 
-    </div>
-</section>
+      <div class="about-intro">
+        <img class="profile-photo profile-photo--small" src="img/profile.png" alt="Francheska Guerrero smiling outdoors under a corrugated metal roof strung with prayer flags.">
+        <div class="speech-bubble">
+          <p>&ldquo;I make the boring and technical interesting for people.&rdquo;</p>
+        </div>
+      </div>
 
-<!-- ── WORK ── -->
-<section class="work-section">
-    <div class="work-header">
-        <h2 class="work-title">Explore<br>my <em>work</em></h2>
-    </div>
-    <div class="work-grid">
-        <a href="https://www.notion.so/Product-Data-Work-2fc05867f9288039af2cd151dcd59518?source=copy_link" class="work-card" target="_blank" rel="noopener">
-            <p class="work-card-num">01</p>
-            <h3 class="work-card-title">Product & Data Work</h3>
-            <p class="work-card-desc">Market research, competitive analysis, roadmap support, and go-to-market execution for brands across industries.</p>
-            <span class="work-card-arrow">↗</span>
-        </a>
-        <a href="https://github.com/francheska123/francheska123" class="work-card" target="_blank" rel="noopener">
-            <p class="work-card-num">02</p>
-            <h3 class="work-card-title">Technical Skills</h3>
-            <p class="work-card-desc">SQL, Python, Tableau, A/B testing, and more. Code as a tool for asking better questions.</p>
-            <span class="work-card-arrow">↗</span>
-        </a>
-        <a href="https://fromticalinda.substack.com/" class="work-card" target="_blank" rel="noopener">
-            <p class="work-card-num">03</p>
-            <h3 class="work-card-title">Storytelling</h3>
-            <p class="work-card-desc">Writing that bridges technical insight and human experience — the same muscle I use for every client.</p>
-            <span class="work-card-arrow">↗</span>
-        </a>
-    </div>
-</section>
+      <p class="hero-eyebrow">Strategy &amp; Market Intelligence Analyst</p>
 
-<!-- ── ABOUT STRIP ── -->
-<section class="about-strip">
-    <div class="about-strip-text">
-        <h2>The person<br>behind the <em>strategy</em></h2>
-        <!-- ✏️ YOUR ABOUT COPY HERE — this is a great place for your bridge paragraph -->
-        <p>
-            <strong>Francheska Guerrero</strong> is a product and marketing strategist with 3+ years driving go-to-market strategy, product positioning, and cross-functional launches from concept to execution.
+      <p>
+        <strong>FRANCHESKA GUERRERO</strong> has always been the connector. Give her something
+        complicated and she'll figure out what's really being asked, then explain it so people
+        can make a clear call.
+      </p>
+      <p>
+        That curiosity doesn't stay in one lane. She's run a half-marathon, trains Brazilian
+        Jiu-Jitsu, rides horses, and is building a cyberdeck from scratch.
+      </p>
+      <p>
+        Lately it's pointed at the business of media: how streaming deals get made, how creators
+        turn into consumer brands, what Apple is actually getting out of MLS, and whether
+        equestrian could have its F1 moment. She's looking for a full-time strategy or market
+        intelligence role where she can do that work for real.
+      </p>
+
+      <h3>Fast Facts</h3>
+      <ul class="fast-facts">
+        <li>74% faster executive reporting</li>
+        <li>40% faster pipeline search</li>
+        <li>20+ years of trade data modeled</li>
+        <li>15 international stakeholders managed</li>
+        <li>Bilingual in English and Spanish</li>
+      </ul>
+
+      <h3>Experience</h3>
+      <ul class="mini-list">
+        <li>
+          <strong>Rare Talent Ventures</strong>: Fractional Chief of Staff and Go-to-Market Lead.
+          First hire at a boutique tech recruiting startup, building the business from the
+          ground up across operations and strategy. Built a custom CRM and client data system
+          that cut pipeline search time 40%, set up onboarding and admin workflows, and created
+          the brand and go-to-market plan from scratch.
+        </li>
+        <li>
+          <strong>Mochee Digital</strong> (Miami): Account Associate. A Miami digital agency
+          serving national and international clients across B2B and B2C. On the analytical
+          side, she audited a year of historical performance data with SQL, Excel, and
+          Brandwatch to build a repeatable strategy, built an emergency Excel reporting workflow
+          that cut executive reporting time 74%, and modeled channel investment decisions behind
+          a 3.94 ROAS campaign ($25K revenue from $7.5K). She managed reporting and requirements
+          across 15 international stakeholders, in English and Spanish. On the creative side,
+          she led the Miami Book Fair digital relaunch, which reached 8.7 million views in five
+          months.
+        </li>
+      </ul>
+
+      <h3>Education &amp; Certificates</h3>
+      <ul class="mini-list">
+        <li>
+          Bachelor of Science in Telecommunication specializing in Management and Strategy,
+          University of Florida, Magna Cum Laude.
+        </li>
+        <li>BrainStation Data Analyst Certification, 2025.</li>
+        <li>BrainStation Python Programmer Certification, 2025.</li>
+      </ul>
+
+      <h3>Core Competencies</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Excel (pivot tables)</span>
+        <span class="skill-tag">Meta Ads Manager</span>
+        <span class="skill-tag">Jupyter Notebook</span>
+        <span class="skill-tag">Brandwatch</span>
+      </div>
+
+      <button
+        type="button"
+        class="text-link"
+        data-lightbox-src="img/word-cloud.png"
+        data-lightbox-alt="Word cloud of traits Francheska is often described by, including strategist, communicator, curious, connector, and creative."
+      >a few words people tend to use →</button>
+
+      <figure class="polaroid polaroid--large" aria-label="A fun aside">
+        <img src="img/kelly-business-bitch.jpeg" alt="Still from The Office captioned 'The business bitch,' referring to Kelly Kapoor.">
+        <figcaption>Kelly Kapoor said it best.</figcaption>
+      </figure>
+    </template>
+
+    <template id="tpl-work">
+      <h2>Work</h2>
+      <p class="placeholder-copy">How I turn messy problems into clear decisions, across campaigns, crisis response, and policy analysis.</p>
+
+      <div class="view-toggle" role="tablist" aria-label="Work view">
+        <button type="button" class="view-toggle-btn active" data-view="featured" role="tab" aria-selected="true">Featured</button>
+        <button type="button" class="view-toggle-btn" data-view="matrix" role="tab" aria-selected="false">Matrix</button>
+      </div>
+
+      <div class="work-view" data-view-panel="featured">
+        <div class="work-grid">
+          <button type="button" class="work-card" data-project="miami-book-fair">
+            <span class="work-tag">Turnaround</span>
+            <h3>Miami Book Fair Turnaround</h3>
+            <p class="work-teaser">Got a stalled account back on track, delivering 8.7M views in 5 months.</p>
+            <span class="work-more">View case study →</span>
+            <div class="work-full" hidden>
+              <p class="work-situation">The Miami Book Fair account was off track with the Fair fast approaching. Senior leadership brought me in to turn it around.</p>
+              <ul class="work-approach">
+                <li>Diagnosed the breakdown and rebuilt the workflow: a content calendar with 3 to 4 weeks of lead time instead of day-to-day posting</li>
+                <li>Set the content strategy for organic and paid, including which audience segments to target and how to drive ticket sales</li>
+                <li>Coordinated every stakeholder and Fair event through Trello and direct client calls</li>
+                <li>Brought books back into the content and adapted TikTok trends to stay on brand</li>
+              </ul>
+              <ul class="work-stats">
+                <li><span class="work-stat-number">8.7M</span><span class="work-stat-label">views</span></li>
+                <li><span class="work-stat-number">131K</span><span class="work-stat-label">interactions</span></li>
+                <li><span class="work-stat-number">5 mo</span><span class="work-stat-label">turnaround</span></li>
+              </ul>
+            </div>
+            <span class="work-tools-full" hidden><strong>Tools:</strong> Sprout Social, Trello, Google Slides, Instagram and TikTok analytics</span>
+            <div class="work-embed" hidden>
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQFhhSSE3FS/" data-instgrm-version="14"></blockquote>
+              <p class="work-link-list">More examples: <a href="https://www.instagram.com/p/DPzemFdjbEC/" target="_blank" rel="noopener">1</a>, <a href="https://www.instagram.com/p/DPZHV9uEsvC/" target="_blank" rel="noopener">2</a>, <a href="https://www.instagram.com/p/DPhevxajYyz/" target="_blank" rel="noopener">3</a>, <a href="https://www.instagram.com/p/DOrg9j9jhKn/" target="_blank" rel="noopener">4</a>, <a href="https://www.instagram.com/p/DNY30-Bpd7D/" target="_blank" rel="noopener">5</a>, <a href="https://www.instagram.com/p/DM8sqN3PtYB/" target="_blank" rel="noopener">6</a></p>
+            </div>
+          </button>
+          <button type="button" class="work-card" data-project="bluehouse-on-the-move">
+            <span class="work-tag">Campaign</span>
+            <h3>Bluehouse Salmon: On the Move</h3>
+            <p class="work-teaser">Designed a six-week campaign following the salmon from egg to plate. Reached 170,000 people.</p>
+            <span class="work-more">View case study →</span>
+            <div class="work-full" hidden>
+              <p class="work-situation">Bluehouse Salmon wanted customers to see the full journey of its salmon, from egg to plate, inside one facility, with nothing hidden.</p>
+              <ul class="work-approach">
+                <li>Built the campaign from scratch: the focus, the strategy, and six weekly themes drawn from the sustainability report</li>
+                <li>Mapped three posts a week per theme, balancing scientific detail with what audiences would actually want to see</li>
+                <li>Managed production with a designer and editor, including an interactive tour built for the company's site</li>
+              </ul>
+              <ul class="work-stats">
+                <li><span class="work-stat-number">170K</span><span class="work-stat-label">reach</span></li>
+                <li><span class="work-stat-number">2.5K</span><span class="work-stat-label">engagements</span></li>
+              </ul>
+            </div>
+            <span class="work-tools-full" hidden><strong>Channels:</strong> Instagram, TikTok, Facebook</span>
+            <div class="work-embed" hidden>
+              <div class="work-link-chips">
+                <a href="https://bluehousesalmon.com/bluehouse-tour/" target="_blank" rel="noopener">Interactive tour →</a>
+              </div>
+              <p class="work-link-list">More on Instagram: <a href="https://www.instagram.com/p/DK-W6Y3MuSs/" target="_blank" rel="noopener">1</a>, <a href="https://www.instagram.com/p/DLQK6khMKYY/" target="_blank" rel="noopener">2</a></p>
+            </div>
+          </button>
+          <button type="button" class="work-card" data-project="trade-policy">
+            <span class="work-tag">Policy</span>
+            <h3>Trade Data Policy Analysis</h3>
+            <p class="work-teaser">Analyzed 25 industries of Canadian trade data to find where the real tariff leverage sits.</p>
+            <span class="work-more">View case study →</span>
+            <div class="work-full" hidden>
+              <p class="work-situation">Should the Canadian government move forward with retaliatory tariffs? I built the dataset and the model to find out.</p>
+              <ul class="work-approach">
+                <li>Cleaned four datasets from Government of Canada trade data and World Bank GDP data using VLOOKUP and HLOOKUP</li>
+                <li>Imported the data into SQL, built the schema, and ran joins to normalize and connect the tables</li>
+                <li>Built a Tableau dashboard to surface patterns across Canada's top 25 trading industries</li>
+                <li>Presented scenario-based recommendations in a mock stakeholder briefing, weighing short-term protectionism against long-term supply strategy</li>
+              </ul>
+              <p class="work-finding"><span>Finding</span>Canada's tariff leverage sits in oil and gas, not steel and aluminum, where the 2018 to 2019 tariff war showed blanket tariffs can be ineffective.</p>
+            </div>
+            <span class="work-tools-full" hidden><strong>Tools:</strong> Excel, SQL, Tableau, PowerPoint</span>
+            <div class="work-embed" hidden>
+              <div class="work-link-chips">
+                <a href="https://public.tableau.com/views/Canada-US-Trade-Case-Study/Sheet5?:language=en-US&amp;publish=yes&amp;:sid=&amp;:redirect=auth&amp;:display_count=n&amp;:origin=viz_share_link" target="_blank" rel="noopener">Tableau dashboard →</a>
+                <a href="https://github.com/francheska123/Canadian-US-trade-analysis/blob/main/SQL-import-data/final_project.sql" target="_blank" rel="noopener">SQL on GitHub →</a>
+                <a href="https://github.com/francheska123/Canadian-US-trade-analysis/blob/main/Stakeholder-Presentation.pdf" target="_blank" rel="noopener">Stakeholder deck →</a>
+              </div>
+            </div>
+          </button>
+          <button type="button" class="work-card" data-project="year-end-report">
+            <span class="work-tag">Analytics</span>
+            <h3>Year-End Social Report</h3>
+            <p class="work-teaser">Turned a year of posts into a platform-by-platform strategy executives could act on.</p>
+            <span class="work-more">View case study →</span>
+            <div class="work-full" hidden>
+              <p class="work-situation">The client wanted their year-end report to go further than a standard recap, so I built them a platform-by-platform strategy instead.</p>
+              <ul class="work-approach">
+                <li>Had every post from the year labeled by content pillar, about 300 in all, to enable pattern analysis</li>
+                <li>Pulled impressions, engagements, and post counts by platform using Brandwatch, Facebook Analytics, and LinkedIn Analytics</li>
+                <li>Explained why the numbers moved and where each platform's analytics hit its limits</li>
+                <li>Translated the patterns into a specific recommended strategy per platform, using analogies executives could act on</li>
+              </ul>
+              <p class="work-finding"><span>Output</span>Framed each platform's role for executives: Instagram as a magazine, LinkedIn as a trade show, Facebook as the message to blue-collar workers.</p>
+            </div>
+            <span class="work-tools-full" hidden><strong>Tools:</strong> Brandwatch, Facebook Analytics, LinkedIn Analytics, Excel</span>
+          </button>
+          <button type="button" class="work-card" data-project="o-miami">
+            <span class="work-tag">Campaign</span>
+            <h3>O, Miami Poetry Festival</h3>
+            <p class="work-teaser">Led social, email, and SMS for O, Miami. Impressions rose 2,238% year over year.</p>
+            <span class="work-more">View case study →</span>
+            <div class="work-full" hidden>
+              <p class="work-situation">O, Miami wanted every channel working as one coordinated push for its annual poetry festival, for the first time with paid and SMS in the mix.</p>
+              <ul class="work-approach">
+                <li>Led and coordinated a four-person team across a two-month campaign, translating client needs into tasks across email, SMS, captions, and posting</li>
+                <li>Unified email, SMS, and social into one integrated campaign instead of separate channels</li>
+                <li>Ran the paid strategy, adjusting in real time as campaign objectives and client needs changed</li>
+                <li>Wrote copy and posted content directly alongside coordinating the team</li>
+              </ul>
+              <ul class="work-stats">
+                <li><span class="work-stat-number">2,238%</span><span class="work-stat-label">impressions</span></li>
+                <li><span class="work-stat-number">1,567%</span><span class="work-stat-label">reach</span></li>
+              </ul>
+            </div>
+            <span class="work-tools-full" hidden><strong>Channels:</strong> Paid social, email, SMS</span>
+          </button>
+          <button type="button" class="work-card" data-project="miami-film-festival">
+            <span class="work-tag">Paid Media</span>
+            <h3>Miami Film Festival GEMS</h3>
+            <p class="work-teaser">My first full paid media campaign. Turned $7.5K in spend into $25.3K in revenue.</p>
+            <span class="work-more">View case study →</span>
+            <div class="work-full" hidden>
+              <p class="work-situation">Miami Film Festival needed its GEMS series to run paid media in full for the first time, on a five-week window before the festival opened.</p>
+              <ul class="work-approach">
+                <li>Wrote the initial paid strategy with the account lead, then built and A/B tested every ad in Meta Ads Manager</li>
+                <li>Matched audience interests and placements to each film to protect return on spend</li>
+                <li>Monitored spend daily, turning off or reworking any ad that got too expensive</li>
+                <li>Reviewed platforms with the client to cut what wasn't paying off, driving over a third of the festival's total revenue with more than half of events selling out</li>
+              </ul>
+              <ul class="work-stats">
+                <li><span class="work-stat-number">3.94x</span><span class="work-stat-label">ROAS</span></li>
+                <li><span class="work-stat-number">$25.3K</span><span class="work-stat-label">revenue</span></li>
+                <li><span class="work-stat-number">$7.5K</span><span class="work-stat-label">ad spend</span></li>
+              </ul>
+            </div>
+            <span class="work-tools-full" hidden><strong>Tools:</strong> Meta Ads Manager</span>
+          </button>
+          <button type="button" class="work-card" data-project="wyndham-alltra">
+            <span class="work-tag">Platform</span>
+            <h3>Wyndham Alltra TikTok Pivot</h3>
+            <p class="work-teaser">Moved strategy to TikTok after spotting it outperforming everything else. Engagement rose 600%.</p>
+            <span class="work-more">View case study →</span>
+            <div class="work-full" hidden>
+              <p class="work-situation">Leadership wasn't happy with the account's results, and more budget wasn't coming, so the fix had to come from the strategy itself.</p>
+              <ul class="work-approach">
+                <li>Audited past performance reports and found TikTok was already outperforming every other channel</li>
+                <li>Recommended and led a TikTok-first pivot, shifting focus away from Instagram and Facebook</li>
+                <li>Partnered with an intern to produce trend-driven video content using assets already on hand</li>
+                <li>Wrote the results report that the client's executive team presented on a quarterly earnings call</li>
+              </ul>
+              <ul class="work-stats">
+                <li><span class="work-stat-number">305%</span><span class="work-stat-label">video views</span></li>
+                <li><span class="work-stat-number">601%</span><span class="work-stat-label">engagement</span></li>
+                <li><span class="work-stat-number">53%</span><span class="work-stat-label">follower growth</span></li>
+              </ul>
+            </div>
+            <span class="work-tools-full" hidden><strong>Tools:</strong> Sprout Social, Brandwatch</span>
+          </button>
+          <button type="button" class="work-card" data-project="crisis-response">
+            <span class="work-tag">Crisis</span>
+            <h3>Social Crisis Response</h3>
+            <p class="work-teaser">First to respond when a client's pages were flooded over a weekend. About 60 billable hours, nearly all solo.</p>
+            <span class="work-more">View case study →</span>
+            <div class="work-full" hidden>
+              <p class="work-situation">A client's social accounts were hit with a wave of negative comments over a weekend, and I was first to respond.</p>
+              <ul class="work-approach">
+                <li>Locked down the damage immediately with comment filters and keyword bans across platforms</li>
+                <li>Shifted from moderation to measurement when priorities changed, building pivot-table reports from scratch</li>
+                <li>Wrote a formula to isolate how many distinct people were actually driving the volume, not just raw comment counts</li>
+                <li>Delivered daily insights on totals, top contributors, and platform split so the client could track the recovery in real time</li>
+              </ul>
+              <ul class="work-stats">
+                <li><span class="work-stat-number">99%</span><span class="work-stat-label">drop from peak</span></li>
+                <li><span class="work-stat-number">14%</span><span class="work-stat-label">from 3 users</span></li>
+                <li><span class="work-stat-number">60 hrs</span><span class="work-stat-label">nearly solo</span></li>
+              </ul>
+            </div>
+            <span class="work-tools-full" hidden><strong>Tools:</strong> Excel pivot tables, Falcon Listening, native platform filters</span>
+          </button>
+          <button type="button" class="work-card" data-project="bluehouse-feed-your-feed">
+            <span class="work-tag">Storytelling</span>
+            <h3>Bluehouse Salmon: Feed Your Feed</h3>
+            <p class="work-teaser">Explained what farmed salmon eat to a skeptical audience. Reached 37.3K on Instagram.</p>
+            <span class="work-more">View case study →</span>
+            <div class="work-full" hidden>
+              <p class="work-situation">Bluehouse Salmon needed to explain a technical, often-criticized part of its process, what its fish are fed, to a skeptical audience.</p>
+              <ul class="work-approach">
+                <li>Worked directly with engineers to translate technical feed reports into accurate, shareable content</li>
+                <li>Wrote all campaign copy and concepted every post, then supervised designers through production</li>
+                <li>Ran 10 to 12 posts over three weeks, prioritizing clarity over jargon</li>
+              </ul>
+              <ul class="work-stats">
+                <li><span class="work-stat-number">37.3K</span><span class="work-stat-label">reach</span></li>
+                <li><span class="work-stat-number">34.6%</span><span class="work-stat-label">new audience</span></li>
+              </ul>
+            </div>
+            <span class="work-tools-full" hidden><strong>Channels:</strong> Instagram</span>
+            <div class="work-embed" hidden>
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C8cals7t6Jh/" data-instgrm-version="14"></blockquote>
+              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C7xA7mkPMiJ/" data-instgrm-version="14"></blockquote>
+            </div>
+          </button>
+          <button type="button" class="work-card" data-project="real-estate-cleanup">
+            <span class="work-tag">Audit</span>
+            <h3>Real Estate Social Cleanup</h3>
+            <p class="work-teaser">Consolidated three scattered pages into one strategy and ad account from scratch.</p>
+            <span class="work-more">View case study →</span>
+            <div class="work-full" hidden>
+              <p class="work-situation">A real estate client's social presence had grown messy: three separate pages, lost logins, and no ad infrastructure.</p>
+              <ul class="work-approach">
+                <li>Reconciled every existing account and consolidated three pages into one clean set</li>
+                <li>Rebuilt bios, covers, and contact info, and archived outdated content</li>
+                <li>Set up Meta Business Manager and pixel tracking, then built their first ads account and content calendar</li>
+              </ul>
+              <p class="work-finding"><span>Result</span>Client adopted the recommended strategy and stayed on for ongoing strategy, reporting, and content.</p>
+            </div>
+            <span class="work-tools-full" hidden><strong>Tools:</strong> Meta Business Manager, Meta Ads Manager, Meta pixel</span>
+          </button>
+          <button type="button" class="work-card" data-project="flavia-aroma">
+            <span class="work-tag">Influencer</span>
+            <h3>Flavia AROMA Influencer Sourcing</h3>
+            <p class="work-teaser">Sourced and signed creator partners for a brewer launch under shifting criteria.</p>
+            <span class="work-more">View case study →</span>
+            <div class="work-full" hidden>
+              <p class="work-situation">Flavia needed credible influencer partners for its AROMA brewer launch, with the client's criteria shifting throughout.</p>
+              <ul class="work-approach">
+                <li>Researched and identified about 90 relevant LinkedIn influencers, adjusting the list as criteria changed</li>
+                <li>Built a partner tracker spreadsheet to support the client's decision-making</li>
+                <li>Negotiated rates and scope with selected influencers, then drew up and finalized contracts within a sharply reduced budget</li>
+              </ul>
+              <ul class="work-stats">
+                <li><span class="work-stat-number">90</span><span class="work-stat-label">researched</span></li>
+                <li><span class="work-stat-number">3</span><span class="work-stat-label">signed</span></li>
+              </ul>
+            </div>
+            <span class="work-tools-full" hidden><strong>Tools:</strong> LinkedIn, partner tracker spreadsheet</span>
+            <div class="work-embed" hidden>
+              <div class="embed-frame embed-frame--linkedin">
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7383701885930590208" height="400" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" title="LinkedIn post: Flavia AROMA launch"></iframe>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="work-view" data-view-panel="detail" hidden>
+        <button type="button" class="work-back">← Back to Work</button>
+        <span class="work-tag" id="work-detail-tag"></span>
+        <h3 id="work-detail-title"></h3>
+        <div id="work-detail-body"></div>
+        <p class="work-tools" id="work-detail-tools"></p>
+        <div class="mini-browser" id="work-detail-mini-browser">
+          <div class="mini-browser-bar">
+            <span class="mini-browser-dot"></span>
+            <span class="mini-browser-dot"></span>
+            <span class="mini-browser-dot"></span>
+            <span class="mini-browser-url">embed</span>
+          </div>
+          <div class="mini-browser-body" id="work-detail-embed"></div>
+        </div>
+      </div>
+
+      <div class="work-view" data-view-panel="matrix" hidden>
+        <p class="placeholder-copy">
+          How each project splits between strategy and data work, and between qualitative and quantitative methods.
         </p>
-        <p>
-            She specializes in translating complex technical products into stories that resonate — not just with insiders, but with the people whose lives those products will actually change.
-        </p>
-        <p>
-            Now looking to bring that lens to early-stage robotics and automation companies. <a href="about.html" class="inline-link">Read more →</a>
-        </p>
-    </div>
-    <div class="about-strip-stats">
-        <div class="stat-card">
-            <div class="stat-num">8.7M</div>
-            <div class="stat-label">Views on platform relaunch in 5 months</div>
+        <div class="matrix">
+          <span class="matrix-axis matrix-axis--top">Strategy</span>
+          <span class="matrix-axis matrix-axis--bottom">Data</span>
+          <span class="matrix-axis matrix-axis--left">Qualitative</span>
+          <span class="matrix-axis matrix-axis--right">Quantitative</span>
+          <div class="matrix-grid">
+            <div class="matrix-quad matrix-quad--tl">
+              <button type="button" class="matrix-chip matrix-chip--filled" data-project="miami-book-fair">Miami Book Fair</button>
+              <button type="button" class="matrix-chip matrix-chip--filled" data-project="o-miami">O, Miami</button>
+              <button type="button" class="matrix-chip matrix-chip--filled" data-project="bluehouse-on-the-move">Bluehouse: On the Move</button>
+              <button type="button" class="matrix-chip matrix-chip--filled" data-project="real-estate-cleanup">Real Estate Cleanup</button>
+              <button type="button" class="matrix-chip matrix-chip--filled" data-project="flavia-aroma">Flavia AROMA</button>
+            </div>
+            <div class="matrix-quad matrix-quad--tr">
+              <button type="button" class="matrix-chip matrix-chip--filled" data-project="wyndham-alltra">Wyndham Alltra</button>
+              <button type="button" class="matrix-chip matrix-chip--filled" data-project="year-end-report">Year-End Report</button>
+            </div>
+            <div class="matrix-quad matrix-quad--bl">
+              <button type="button" class="matrix-chip matrix-chip--filled" data-project="bluehouse-feed-your-feed">Bluehouse: Feed Your Feed</button>
+            </div>
+            <div class="matrix-quad matrix-quad--br">
+              <button type="button" class="matrix-chip matrix-chip--filled" data-project="trade-policy">Trade Policy Analysis</button>
+              <button type="button" class="matrix-chip matrix-chip--filled" data-project="miami-film-festival">Film Festival GEMS</button>
+              <button type="button" class="matrix-chip matrix-chip--filled" data-project="crisis-response">Crisis Response</button>
+            </div>
+          </div>
         </div>
-        <div class="stat-card">
-            <div class="stat-num">3.94×</div>
-            <div class="stat-label">ROAS — $25K revenue from $7.5K investment</div>
+      </div>
+    </template>
+
+    <template id="tpl-links">
+      <h2>Links</h2>
+      <ul class="link-list">
+        <li>
+          <a href="mailto:f.guerrerowork@gmail.com" class="link-item">
+            <span aria-hidden="true">✉️</span> Email
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/francheskaguerrero/" class="link-item" target="_blank" rel="noopener">
+            <span aria-hidden="true">💼</span> LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/francheska123/francheska123" class="link-item" target="_blank" rel="noopener">
+            <span aria-hidden="true">🖥️</span> GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://fromticalinda.substack.com/" class="link-item" target="_blank" rel="noopener">
+            <span aria-hidden="true">✍️</span> Tica Linda (Substack)
+          </a>
+        </li>
+        <li class="link-item link-item--todo">
+          <span aria-hidden="true">📄</span> Resume
+          <span class="todo-badge">add file</span>
+        </li>
+      </ul>
+    </template>
+
+    <template id="tpl-contact">
+      <h2>Contact</h2>
+      <p>
+        I am looking for my next full-time role in data, strategy, or intelligence work. If
+        that overlaps with what you are hiring for, I would like to hear from you.
+      </p>
+      <a class="button" href="mailto:f.guerrerowork@gmail.com">Email me →</a>
+    </template>
+
+    <template id="tpl-fortune">
+      <h2>Fortune.txt</h2>
+      <p class="fortune-text" id="fortune-line">Click "new fortune" for a bit of nonsense.</p>
+      <button type="button" class="button" id="fortune-btn">New fortune</button>
+    </template>
+
+    <template id="tpl-game">
+      <h2>Lox Café</h2>
+      <p>☕&nbsp; A little Diner Dash-style coffee shop I built myself. Make drinks, warm pastries, and keep the customers happy.</p>
+      <div class="mini-browser">
+        <div class="mini-browser-bar">
+          <span class="mini-browser-dot"></span>
+          <span class="mini-browser-dot"></span>
+          <span class="mini-browser-dot"></span>
+          <span class="mini-browser-url">lox-cafe</span>
         </div>
-        <div class="stat-card">
-            <div class="stat-num">600%</div>
-            <div class="stat-label">Engagement increase QoQ</div>
+        <div class="mini-browser-body">
+          <p class="placeholder-copy">On your phone: tap Share, then Add to Home Screen, and it plays like an app.</p>
+          <a class="button" href="https://francheska123.github.io/lox-cafe/" target="_blank" rel="noopener">Play Lox Café →</a>
         </div>
-        <div class="stat-card">
-            <div class="stat-num">34.6%</div>
-            <div class="stat-label">Avg reach among new user segments</div>
-        </div>
-    </div>
-</section>
+      </div>
+    </template>
 
-<!-- ── GALLERY ── -->
-<section class="gallery-section">
-    <div class="gallery-section-header">
-        <h2>On-Site Client Work</h2>
-    </div>
-    <div class="gallery-carousel">
-        <button class="gallery-btn prev" aria-label="Previous">‹</button>
-        <div class="gallery-track">
-            <div class="gallery-item"><img src="Assets/Gallery/Coworkers.jpeg" alt="Coworkers"></div>
-            <div class="gallery-item"><img src="Assets/Gallery/Flavia-Shoot-Pic.jpeg" alt="Flavia Shoot"></div>
-            <div class="gallery-item"><img src="Assets/Gallery/Miami-Book-Fair-Group.jpeg" alt="Miami Book Fair"></div>
-            <div class="gallery-item"><img src="Assets/Gallery/Miami-Marathon.jpeg" alt="Miami Marathon"></div>
-            <div class="gallery-item"><img src="Assets/Gallery/29-Wynwood-Flag.png" alt="29 Wynwood Flag"></div>
-            <div class="gallery-item"><img src="Assets/Gallery/Miami-Book-Fair-Guide.jpeg" alt="Miami Book Fair Guide"></div>
-            <div class="gallery-item"><img src="Assets/Gallery/Flavia-Shoot-Screen.jpeg" alt="Flavia Shoot Screen"></div>
-            <div class="gallery-item"><img src="Assets/Gallery/Miami-Book-Fair-Solo.jpeg" alt="Miami Book Fair Solo"></div>
-        </div>
-        <button class="gallery-btn next" aria-label="Next">›</button>
-    </div>
-</section>
+  </div>
 
-<!-- ── FOOTER ── -->
-<footer>
-    <div class="footer-inner">
-        <div class="footer-brand">
-            <a href="index.html" class="logo-foot">Francheska Guerrero</a>
-            <p>Product & Marketing Strategist · Open to Relocation</p>
-        </div>
-        <div class="footer-links">
-            <a href="resume.html">Resume</a>
-            <a href="https://www.linkedin.com/in/francheskaguerrero/" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://github.com/francheska123/francheska123" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://fromticalinda.substack.com/" target="_blank" rel="noopener">Substack</a>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>Designed & developed by Francheska Guerrero</p>
-        <p>© 2026</p>
-    </div>
-</footer>
+  <!-- Floating windows render here -->
+  <div id="windows-layer" aria-live="polite"></div>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
+  <!-- Taskbar -->
+  <footer id="taskbar">
+    <span id="taskbar-label">open windows:</span>
+    <div id="taskbar-items"></div>
+  </footer>
 
-    // ─────────────────────────────────────────
-    // 1. TYPING EFFECT — hero headline
-    // em: true = pink italic, em: false = white normal
-    // ─────────────────────────────────────────
-    const headline = document.querySelector(".hero-headline");
-    if (headline) {
-        const parts = [
-            { text: "I help robotics and tech companies go ",      em: false },
-            { text: " from ",                                      em: false },
-            { text: "technical spec",                              em: true  },
-            { text: " to ",                                        em: false },
-            { text: "human story",                                 em: true  },
-        ];
+  <!-- Lightbox (shared by any [data-lightbox-src] trigger) -->
+  <div id="lightbox" hidden>
+    <div id="lightbox-backdrop"></div>
+    <figure id="lightbox-frame" role="dialog" aria-modal="true" aria-label="Image preview">
+      <button type="button" id="lightbox-close" aria-label="Close image preview">×</button>
+      <img id="lightbox-img" src="" alt="">
+    </figure>
+  </div>
 
-        const speed = 38;
-        headline.innerHTML = '<span class="cursor"></span>';
-        const cursor = headline.querySelector(".cursor");
-        let partIndex = 0;
-        let charIndex = 0;
-
-        function type() {
-            if (partIndex >= parts.length) return;
-
-            const part = parts[partIndex];
-            let currentSpan = cursor.previousSibling;
-            const isNewWord = charIndex === 0 || part.text[charIndex - 1] === " ";
-
-            if (isNewWord || !currentSpan || currentSpan.dataset.part !== String(partIndex)) {
-                currentSpan = document.createElement("span");
-                currentSpan.dataset.part = String(partIndex);
-                if (part.em) {
-                    currentSpan.style.fontStyle = "italic";
-                    currentSpan.style.color = "var(--pink)";
-                }
-                headline.insertBefore(currentSpan, cursor);
-            }
-
-            currentSpan.textContent += part.text[charIndex];
-            charIndex++;
-
-            if (charIndex >= part.text.length) {
-                partIndex++;
-                charIndex = 0;
-            }
-
-            if (partIndex < parts.length) {
-                setTimeout(type, speed);
-            } else {
-                // typing is done — fade in the quip
-                const quip = document.querySelector(".hero-quip");
-                if (quip) setTimeout(() => { quip.style.opacity = "1"; }, 400);
-            }
-        }
-
-        setTimeout(type, 600); // ← this was missing too
-    } // ← this closing brace was missing
-
-
-    // ─────────────────────────────────────────
-    // 2. MOBILE MENU — hamburger toggle
-    // ─────────────────────────────────────────
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks   = document.querySelector(".nav-links");
-
-    if (menuToggle && navLinks) {
-        menuToggle.setAttribute("aria-expanded", "false");
-
-        menuToggle.addEventListener("click", () => {
-            const isActive = navLinks.classList.toggle("active");
-            menuToggle.setAttribute("aria-expanded", String(isActive));
-        });
-
-        navLinks.querySelectorAll("a").forEach(a => {
-            a.addEventListener("click", () => {
-                navLinks.classList.remove("active");
-                menuToggle.setAttribute("aria-expanded", "false");
-            });
-        });
-
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && navLinks.classList.contains("active")) {
-                navLinks.classList.remove("active");
-                menuToggle.setAttribute("aria-expanded", "false");
-            }
-        });
-    }
-
-
-    // ─────────────────────────────────────────
-    // 3. GALLERY CAROUSEL — scroll buttons
-    // ─────────────────────────────────────────
-    const track   = document.querySelector(".gallery-track");
-    const prevBtn = document.querySelector(".gallery-btn.prev");
-    const nextBtn = document.querySelector(".gallery-btn.next");
-
-    if (track && prevBtn && nextBtn) {
-        nextBtn.addEventListener("click", () => track.scrollBy({ left:  310, behavior: "smooth" }));
-        prevBtn.addEventListener("click", () => track.scrollBy({ left: -310, behavior: "smooth" }));
-    }
-
-});
-</script>
-
+  <script src="js/app.js?v=17"></script>
+  <script async src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>
