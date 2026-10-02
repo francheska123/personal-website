@@ -10,8 +10,9 @@
     var monitor = document.querySelector(".crt-monitor");
     var promptEl = document.getElementById("boot-prompt");
     var textEl = document.getElementById("boot-text");
+    var iconEl = document.getElementById("boot-icon");
     var lines = [
-      "🧙‍♀️ francheska's cauldron",
+      "francheska's cauldron",
       "tossing in a pinch of curiosity",
       "a dash of strategy",
       "a spoonful of good taste",
@@ -28,6 +29,7 @@
       screen.classList.add("hidden");
       window.setTimeout(function () {
         screen.hidden = true;
+        showWelcome();
       }, 450);
     }
 
@@ -48,6 +50,7 @@
       monitor.classList.add("powered-on");
       promptEl.hidden = true;
       textEl.hidden = false;
+      iconEl.hidden = false;
 
       if (prefersReducedMotion) {
         textEl.textContent = lines.join("\n");
@@ -140,7 +143,8 @@
     game: "Lox Café",
     videos: "Videos",
     "cultural-icons": "Cultural Icons",
-    "tica-linda": "Tica Linda"
+    "tica-linda": "Tica Linda",
+    welcome: "Welcome"
   };
   var windowIcons = {
     about: '<svg viewBox="0 0 32 32" width="18" height="18"><defs><linearGradient id="tb-faceGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#faf3e7"/><stop offset="100%" stop-color="#e3c6a8"/></linearGradient></defs><circle cx="16" cy="16" r="13" fill="url(#tb-faceGrad)" stroke="#3a1809" stroke-width="1.5"/><circle cx="11.5" cy="14.5" r="1.5" fill="#3a1809"/><circle cx="20.5" cy="14.5" r="1.5" fill="#3a1809"/><ellipse cx="9.5" cy="19" rx="2.4" ry="1.5" fill="#8a3e1f" opacity="0.4"/><ellipse cx="22.5" cy="19" rx="2.4" ry="1.5" fill="#8a3e1f" opacity="0.4"/><path d="M11 20.5 Q16 25 21 20.5" stroke="#3a1809" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="11" cy="9" rx="4" ry="2.2" fill="#fff" opacity="0.5"/></svg>',
@@ -151,6 +155,7 @@
     game: '<svg viewBox="0 0 32 32" width="18" height="18"><defs><linearGradient id="tb-mugGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#faf3e7"/><stop offset="100%" stop-color="#e3c6a8"/></linearGradient></defs><ellipse cx="15" cy="27" rx="11" ry="2.3" fill="#e3c6a8" stroke="#3a1809" stroke-width="1.2"/><path d="M23 13 q6 0 6 5.5 q0 5.5 -6 5.5" fill="none" stroke="#3a1809" stroke-width="2.2" stroke-linecap="round"/><rect x="6" y="11" width="18" height="14" rx="3" fill="url(#tb-mugGrad)" stroke="#3a1809" stroke-width="1.5"/><path d="M7.3 13 h15.4 q0.6 2.2 -1.1 3.4 h-13.2 q-1.7 -1.2 -1.1 -3.4 z" fill="#8a3e1f"/><path d="M11 9 q-1.5 -2 0 -4 M16 9 q-1.5 -2 0 -4" fill="none" stroke="#6ebfea" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/><ellipse cx="9.3" cy="16.5" rx="2.6" ry="1.6" fill="#fff" opacity="0.45"/></svg>',
     videos: '<svg viewBox="0 0 32 32" width="18" height="18"><defs><linearGradient id="tb-clapBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#faf3e7"/><stop offset="100%" stop-color="#e3c6a8"/></linearGradient></defs><rect x="4" y="13" width="24" height="15" rx="2.5" fill="url(#tb-clapBody)" stroke="#3a1809" stroke-width="1.5"/><g transform="rotate(-7 16 10)"><rect x="3" y="6" width="26" height="7" rx="1.5" fill="#3a1809"/><rect x="7" y="6" width="3" height="7" fill="#eaef8e"/><rect x="14" y="6" width="3" height="7" fill="#eaef8e"/><rect x="21" y="6" width="3" height="7" fill="#eaef8e"/><rect x="3" y="6" width="26" height="7" rx="1.5" fill="none" stroke="#3a1809" stroke-width="1.5"/></g><circle cx="24.5" cy="17.5" r="1.3" fill="#3a1809"/><ellipse cx="10" cy="19" rx="3" ry="1.6" fill="#fff" opacity="0.4"/></svg>',
     "cultural-icons": '<svg viewBox="0 0 32 32" width="18" height="18"><defs><linearGradient id="tb-frameGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#eaef8e"/><stop offset="100%" stop-color="#c7cf4d"/></linearGradient></defs><rect x="4" y="4" width="24" height="24" rx="3" fill="url(#tb-frameGrad)" stroke="#3a1809" stroke-width="1.5"/><rect x="8" y="8" width="16" height="16" rx="1.5" fill="#faf3e7" stroke="#3a1809" stroke-width="1.2"/><circle cx="16" cy="14" r="3.2" fill="#8a3e1f"/><path d="M10 22 Q16 16 22 22 Z" fill="#8a3e1f"/></svg>',
+    welcome: '<svg viewBox="0 0 32 32" width="18" height="18"><path d="M16 3 l2.2 9.8 L28 15 l-9.8 2.2 L16 27 l-2.2 -9.8 L4 15 l9.8 -2.2 z" fill="#dde35f" stroke="#3a1809" stroke-width="1.2" stroke-linejoin="round"/></svg>',
     "tica-linda": '<svg viewBox="0 0 32 32" width="18" height="18"><defs><linearGradient id="tb-tlBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a2410"/><stop offset="100%" stop-color="#3a1809"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="10" fill="url(#tb-tlBg)" stroke="#3a1809" stroke-width="1.5"/><path d="M7 10 h8 v2.6 h-2.7 v9.4 h-2.6 v-9.4 h-2.7 z" fill="#6ebfea"/><path d="M17 10 h2.6 v9.4 h4.4 v2.6 h-7 z" fill="#6ebfea"/><path d="M24 5 l1 2.4 2.4 1 -2.4 1 -1 2.4 -1 -2.4 -2.4 -1 2.4 -1 z" fill="#faf3e7"/></svg>'
   };
   var windowStatus = {
@@ -162,7 +167,8 @@
     game: "Playable",
     videos: "1 video",
     "cultural-icons": "2 videos",
-    "tica-linda": "Ready"
+    "tica-linda": "Ready",
+    welcome: "Ready"
   };
 
   var layer = document.getElementById("windows-layer");
@@ -214,9 +220,15 @@
     focusWindow(id);
   }
 
+  var sourcesWrap = document.getElementById("window-templates");
+
   function closeWindow(id) {
     var entry = openWindows[id];
     if (!entry) return;
+    if (entry.source) {
+      if (entry.source.__reset) entry.source.__reset();
+      sourcesWrap.appendChild(entry.source);
+    }
     entry.el.remove();
     entry.taskbarBtn.remove();
     delete openWindows[id];
@@ -318,7 +330,8 @@
 
     var body = document.createElement("div");
     body.className = "window-body";
-    body.appendChild(template.content.cloneNode(true));
+    template.classList.remove("welcome-card");
+    body.appendChild(template);
 
     var statusbar = document.createElement("div");
     statusbar.className = "window-statusbar";
@@ -333,7 +346,11 @@
     win.appendChild(body);
     win.appendChild(statusbar);
 
-    if (!isSmallScreen()) {
+    if (id === "welcome" && !isSmallScreen()) {
+      win.style.width = "380px";
+      win.style.left = Math.max(24, window.innerWidth - 380 - 56) + "px";
+      win.style.top = "96px";
+    } else if (!isSmallScreen()) {
       cascade = (cascade + 1) % 6;
       win.style.left = 60 + cascade * 26 + "px";
       win.style.top = 90 + cascade * 22 + "px";
@@ -349,16 +366,42 @@
     taskbarBtn.addEventListener("click", function () { focusWindow(id); });
     taskbarItems.appendChild(taskbarBtn);
 
-    openWindows[id] = { el: win, taskbarBtn: taskbarBtn };
+    openWindows[id] = { el: win, taskbarBtn: taskbarBtn, source: template };
 
     var iconBtn = document.querySelector('.icon[data-open="' + id + '"]');
     if (iconBtn) iconBtn.classList.add("active");
 
     focusWindow(id);
 
-    if (id === "fortune") setupFortune(body);
-    if (id === "work") setupWorkToggle(body);
+    if (!template.dataset.ready) {
+      template.dataset.ready = "1";
+      if (id === "fortune") setupFortune(body);
+      if (id === "work") {
+        var api = setupWorkToggle(body);
+        template.__reset = api.reset;
+        template.__openProject = api.openProject;
+      }
+    }
   }
+
+  function showWelcome() {
+    var source = document.getElementById("tpl-welcome");
+    if (!source) return;
+    if (isSmallScreen()) {
+      source.classList.add("welcome-card");
+      document.getElementById("welcome-slot").appendChild(source);
+    } else {
+      openWindow("welcome");
+    }
+  }
+
+  document.querySelectorAll(".icon[data-project]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      openWindow("work");
+      var work = document.getElementById("tpl-work");
+      if (work.__openProject) work.__openProject(btn.getAttribute("data-project"));
+    });
+  });
 
   document.querySelectorAll("[data-open]").forEach(function (btn) {
     btn.addEventListener("click", function () {
@@ -499,16 +542,23 @@
       });
     });
 
-    if (backBtn) {
-      backBtn.addEventListener("click", function () {
-        toggleRow.hidden = false;
-        buttons.forEach(function (b) {
-          var isActive = b.getAttribute("data-view") === "featured";
-          b.classList.toggle("active", isActive);
-          b.setAttribute("aria-selected", isActive ? "true" : "false");
-        });
-        showPanel("featured");
+    function reset() {
+      toggleRow.hidden = false;
+      buttons.forEach(function (b) {
+        var isActive = b.getAttribute("data-view") === "featured";
+        b.classList.toggle("active", isActive);
+        b.setAttribute("aria-selected", isActive ? "true" : "false");
       });
+      showPanel("featured");
     }
+
+    if (backBtn) backBtn.addEventListener("click", reset);
+
+    return {
+      reset: reset,
+      openProject: function (slug) {
+        if (cardsByProject[slug]) openCard(cardsByProject[slug]);
+      }
+    };
   }
 })();
