@@ -137,7 +137,10 @@
     links: "Links",
     contact: "Contact",
     fortune: "Fortune.txt",
-    game: "Lox Café"
+    game: "Lox Café",
+    videos: "Videos",
+    "cultural-icons": "Cultural Icons",
+    "tica-linda": "Tica Linda"
   };
   var windowIcons = {
     about: '<svg viewBox="0 0 32 32" width="18" height="18"><defs><linearGradient id="tb-faceGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#faf3e7"/><stop offset="100%" stop-color="#e3c6a8"/></linearGradient></defs><circle cx="16" cy="16" r="13" fill="url(#tb-faceGrad)" stroke="#3a1809" stroke-width="1.5"/><circle cx="11.5" cy="14.5" r="1.5" fill="#3a1809"/><circle cx="20.5" cy="14.5" r="1.5" fill="#3a1809"/><ellipse cx="9.5" cy="19" rx="2.4" ry="1.5" fill="#8a3e1f" opacity="0.4"/><ellipse cx="22.5" cy="19" rx="2.4" ry="1.5" fill="#8a3e1f" opacity="0.4"/><path d="M11 20.5 Q16 25 21 20.5" stroke="#3a1809" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="11" cy="9" rx="4" ry="2.2" fill="#fff" opacity="0.5"/></svg>',
@@ -145,15 +148,21 @@
     links: '<svg viewBox="0 0 32 32" width="18" height="18"><defs><linearGradient id="tb-linkGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8fd4f2"/><stop offset="100%" stop-color="#6ebfea"/></linearGradient><linearGradient id="tb-linkGrad2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a7ba3"/><stop offset="100%" stop-color="#2a4d73"/></linearGradient></defs><rect x="4" y="13" width="14" height="10" rx="5" fill="none" stroke="url(#tb-linkGrad2)" stroke-width="3.5"/><rect x="14" y="9" width="14" height="10" rx="5" fill="none" stroke="url(#tb-linkGrad)" stroke-width="3.5"/><rect x="4" y="13" width="14" height="10" rx="5" fill="none" stroke="#3a1809" stroke-width="1.2"/><rect x="14" y="9" width="14" height="10" rx="5" fill="none" stroke="#3a1809" stroke-width="1.2"/><ellipse cx="19" cy="11.5" rx="2.6" ry="1.3" fill="#fff" opacity="0.5"/></svg>',
     contact: '<svg viewBox="0 0 32 32" width="18" height="18"><defs><linearGradient id="tb-envGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#faf3e7"/><stop offset="100%" stop-color="#e8dcc8"/></linearGradient></defs><rect x="3" y="8" width="26" height="18" rx="3.5" fill="url(#tb-envGrad)" stroke="#3a1809" stroke-width="1.5"/><path d="M4 9.5 L16 19 L28 9.5" fill="none" stroke="#2a4d73" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="9.5" cy="12" rx="3.5" ry="1.8" fill="#fff" opacity="0.5"/></svg>',
     fortune: '<svg viewBox="0 0 32 32" width="18" height="18"><defs><radialGradient id="tb-ballGrad" cx="35%" cy="30%" r="70%"><stop offset="0%" stop-color="#bfe4f7"/><stop offset="55%" stop-color="#6ebfea"/><stop offset="100%" stop-color="#2a4d73"/></radialGradient></defs><ellipse cx="16" cy="27" rx="8" ry="2.2" fill="#8a3e1f"/><rect x="12" y="24" width="8" height="3" rx="1.2" fill="#a8531f" stroke="#3a1809" stroke-width="1"/><circle cx="16" cy="15" r="11" fill="url(#tb-ballGrad)" stroke="#3a1809" stroke-width="1.5"/><ellipse cx="11.5" cy="10" rx="3.6" ry="2" fill="#fff" opacity="0.55"/><path d="M24 6 l1 2 2 1 -2 1 -1 2 -1 -2 -2 -1 2 -1 z" fill="#dde35f"/></svg>',
-    game: '<svg viewBox="0 0 32 32" width="18" height="18"><defs><linearGradient id="tb-mugGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#faf3e7"/><stop offset="100%" stop-color="#e3c6a8"/></linearGradient></defs><ellipse cx="15" cy="27" rx="11" ry="2.3" fill="#e3c6a8" stroke="#3a1809" stroke-width="1.2"/><path d="M23 13 q6 0 6 5.5 q0 5.5 -6 5.5" fill="none" stroke="#3a1809" stroke-width="2.2" stroke-linecap="round"/><rect x="6" y="11" width="18" height="14" rx="3" fill="url(#tb-mugGrad)" stroke="#3a1809" stroke-width="1.5"/><path d="M7.3 13 h15.4 q0.6 2.2 -1.1 3.4 h-13.2 q-1.7 -1.2 -1.1 -3.4 z" fill="#8a3e1f"/><path d="M11 9 q-1.5 -2 0 -4 M16 9 q-1.5 -2 0 -4" fill="none" stroke="#6ebfea" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/><ellipse cx="9.3" cy="16.5" rx="2.6" ry="1.6" fill="#fff" opacity="0.45"/></svg>'
+    game: '<svg viewBox="0 0 32 32" width="18" height="18"><defs><linearGradient id="tb-mugGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#faf3e7"/><stop offset="100%" stop-color="#e3c6a8"/></linearGradient></defs><ellipse cx="15" cy="27" rx="11" ry="2.3" fill="#e3c6a8" stroke="#3a1809" stroke-width="1.2"/><path d="M23 13 q6 0 6 5.5 q0 5.5 -6 5.5" fill="none" stroke="#3a1809" stroke-width="2.2" stroke-linecap="round"/><rect x="6" y="11" width="18" height="14" rx="3" fill="url(#tb-mugGrad)" stroke="#3a1809" stroke-width="1.5"/><path d="M7.3 13 h15.4 q0.6 2.2 -1.1 3.4 h-13.2 q-1.7 -1.2 -1.1 -3.4 z" fill="#8a3e1f"/><path d="M11 9 q-1.5 -2 0 -4 M16 9 q-1.5 -2 0 -4" fill="none" stroke="#6ebfea" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/><ellipse cx="9.3" cy="16.5" rx="2.6" ry="1.6" fill="#fff" opacity="0.45"/></svg>',
+    videos: '<svg viewBox="0 0 32 32" width="18" height="18"><defs><linearGradient id="tb-clapBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#faf3e7"/><stop offset="100%" stop-color="#e3c6a8"/></linearGradient></defs><rect x="4" y="13" width="24" height="15" rx="2.5" fill="url(#tb-clapBody)" stroke="#3a1809" stroke-width="1.5"/><g transform="rotate(-7 16 10)"><rect x="3" y="6" width="26" height="7" rx="1.5" fill="#3a1809"/><rect x="7" y="6" width="3" height="7" fill="#eaef8e"/><rect x="14" y="6" width="3" height="7" fill="#eaef8e"/><rect x="21" y="6" width="3" height="7" fill="#eaef8e"/><rect x="3" y="6" width="26" height="7" rx="1.5" fill="none" stroke="#3a1809" stroke-width="1.5"/></g><circle cx="24.5" cy="17.5" r="1.3" fill="#3a1809"/><ellipse cx="10" cy="19" rx="3" ry="1.6" fill="#fff" opacity="0.4"/></svg>',
+    "cultural-icons": '<svg viewBox="0 0 32 32" width="18" height="18"><defs><linearGradient id="tb-frameGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#eaef8e"/><stop offset="100%" stop-color="#c7cf4d"/></linearGradient></defs><rect x="4" y="4" width="24" height="24" rx="3" fill="url(#tb-frameGrad)" stroke="#3a1809" stroke-width="1.5"/><rect x="8" y="8" width="16" height="16" rx="1.5" fill="#faf3e7" stroke="#3a1809" stroke-width="1.2"/><circle cx="16" cy="14" r="3.2" fill="#8a3e1f"/><path d="M10 22 Q16 16 22 22 Z" fill="#8a3e1f"/></svg>',
+    "tica-linda": '<svg viewBox="0 0 32 32" width="18" height="18"><defs><linearGradient id="tb-tlBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a2410"/><stop offset="100%" stop-color="#3a1809"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="10" fill="url(#tb-tlBg)" stroke="#3a1809" stroke-width="1.5"/><path d="M7 10 h8 v2.6 h-2.7 v9.4 h-2.6 v-9.4 h-2.7 z" fill="#6ebfea"/><path d="M17 10 h2.6 v9.4 h4.4 v2.6 h-7 z" fill="#6ebfea"/><path d="M24 5 l1 2.4 2.4 1 -2.4 1 -1 2.4 -1 -2.4 -2.4 -1 2.4 -1 z" fill="#faf3e7"/></svg>'
   };
   var windowStatus = {
     about: "3 paragraph(s)",
     work: "11 project(s)",
-    links: "5 link(s)",
+    links: "4 link(s)",
     contact: "Ready",
     fortune: "Ready",
-    game: "Playable"
+    game: "Playable",
+    videos: "1 video",
+    "cultural-icons": "2 videos",
+    "tica-linda": "Ready"
   };
 
   var layer = document.getElementById("windows-layer");
@@ -467,33 +476,12 @@
       if (embedSource) {
         detailEmbed.innerHTML = embedSource.innerHTML;
         detailMiniBrowser.hidden = false;
-        if (window.instgrm && window.instgrm.Embeds) {
-          window.instgrm.Embeds.process();
-          sandboxInstagramEmbeds(detailEmbed);
-        }
       } else {
         detailEmbed.innerHTML = "";
         detailMiniBrowser.hidden = true;
       }
       toggleRow.hidden = true;
       showPanel("detail");
-    }
-
-    // Instagram's embed.js builds its own unsandboxed iframe; once it swaps the
-    // blockquote for that iframe, pin sandbox on it so a click inside the embed
-    // can't navigate this whole page away (reload the same src under sandbox).
-    function sandboxInstagramEmbeds(container) {
-      var tries = 0;
-      var poll = window.setInterval(function () {
-        tries++;
-        var iframes = container.querySelectorAll("iframe.instagram-media-rendered:not([data-sandboxed])");
-        iframes.forEach(function (frame) {
-          frame.setAttribute("data-sandboxed", "true");
-          frame.setAttribute("sandbox", "allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox");
-          frame.src = frame.src;
-        });
-        if (tries >= 20) window.clearInterval(poll);
-      }, 250);
     }
 
     var cardsByProject = {};

@@ -30,7 +30,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="css/style.css?v=27">
+<link rel="stylesheet" href="css/style.css?v=29">
 </head>
 <body>
 
@@ -58,18 +58,26 @@
   <header id="menubar">
     <div class="start-wrap">
       <button type="button" id="start-button" aria-haspopup="true" aria-expanded="false">
-        <span id="start-icon" aria-hidden="true">✨</span>
+        <span id="start-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="18" height="18">
+            <path d="M16 3 l2.2 9.8 L28 15 l-9.8 2.2 L16 27 l-2.2 -9.8 L4 15 l9.8 -2.2 z" fill="#dde35f" stroke="#3a1809" stroke-width="1.2" stroke-linejoin="round"/>
+            <path d="M25 6 l0.8 2 2 0.8 -2 0.8 -0.8 2 -0.8 -2 -2 -0.8 2 -0.8 z" fill="#faf3e7"/>
+          </svg>
+        </span>
         <span id="menubar-logo">francheska</span>
       </button>
       <div id="start-menu" hidden>
         <div class="start-menu-sidebar" aria-hidden="true"><span>FRANCHESKA &middot; 2026</span></div>
         <ul class="start-menu-list">
-          <li><button type="button" data-open="about"><span aria-hidden="true">🙂</span>About Me</button></li>
-          <li><button type="button" data-open="work"><span aria-hidden="true">🗂️</span>Work</button></li>
-          <li><button type="button" data-open="links"><span aria-hidden="true">🔗</span>Links</button></li>
-          <li><button type="button" data-open="contact"><span aria-hidden="true">✉️</span>Contact</button></li>
-          <li><button type="button" data-open="fortune"><span aria-hidden="true">🔮</span>Fortune.txt</button></li>
-          <li><button type="button" data-open="game"><span aria-hidden="true">☕</span>Lox Café</button></li>
+          <li><button type="button" data-open="about"><span class="link-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="16" height="16"><defs><linearGradient id="sm-faceGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#faf3e7"/><stop offset="100%" stop-color="#e3c6a8"/></linearGradient></defs><circle cx="16" cy="16" r="13" fill="url(#sm-faceGrad)" stroke="#3a1809" stroke-width="1.5"/><circle cx="11.5" cy="14.5" r="1.5" fill="#3a1809"/><circle cx="20.5" cy="14.5" r="1.5" fill="#3a1809"/><path d="M11 20.5 Q16 25 21 20.5" stroke="#3a1809" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span>About Me</button></li>
+          <li><button type="button" data-open="work"><span class="link-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="16" height="16"><defs><linearGradient id="sm-folderBack" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a8531f"/><stop offset="100%" stop-color="#8a3e1f"/></linearGradient><linearGradient id="sm-folderFront" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#eaef8e"/><stop offset="100%" stop-color="#c7cf4d"/></linearGradient></defs><rect x="3" y="7" width="14" height="7" rx="2.5" fill="url(#sm-folderBack)" stroke="#3a1809" stroke-width="1.5"/><rect x="3" y="11" width="26" height="17" rx="4" fill="url(#sm-folderFront)" stroke="#3a1809" stroke-width="1.5"/></svg></span>Work</button></li>
+          <li><button type="button" data-open="links"><span class="link-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="16" height="16"><defs><linearGradient id="sm-linkGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8fd4f2"/><stop offset="100%" stop-color="#6ebfea"/></linearGradient><linearGradient id="sm-linkGrad2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a7ba3"/><stop offset="100%" stop-color="#2a4d73"/></linearGradient></defs><rect x="4" y="13" width="14" height="10" rx="5" fill="none" stroke="url(#sm-linkGrad2)" stroke-width="3.5"/><rect x="14" y="9" width="14" height="10" rx="5" fill="none" stroke="url(#sm-linkGrad)" stroke-width="3.5"/></svg></span>Links</button></li>
+          <li><button type="button" data-open="contact"><span class="link-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="16" height="16"><defs><linearGradient id="sm-envGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#faf3e7"/><stop offset="100%" stop-color="#e8dcc8"/></linearGradient></defs><rect x="3" y="8" width="26" height="18" rx="3.5" fill="url(#sm-envGrad)" stroke="#3a1809" stroke-width="1.5"/><path d="M4 9.5 L16 19 L28 9.5" fill="none" stroke="#2a4d73" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Contact</button></li>
+          <li><button type="button" data-open="fortune"><span class="link-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="16" height="16"><defs><radialGradient id="sm-ballGrad" cx="35%" cy="30%" r="70%"><stop offset="0%" stop-color="#bfe4f7"/><stop offset="55%" stop-color="#6ebfea"/><stop offset="100%" stop-color="#2a4d73"/></radialGradient></defs><ellipse cx="16" cy="27" rx="8" ry="2.2" fill="#8a3e1f"/><rect x="12" y="24" width="8" height="3" rx="1.2" fill="#a8531f" stroke="#3a1809" stroke-width="1"/><circle cx="16" cy="15" r="11" fill="url(#sm-ballGrad)" stroke="#3a1809" stroke-width="1.5"/></svg></span>Fortune.txt</button></li>
+          <li><button type="button" data-open="game"><span class="link-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="16" height="16"><defs><linearGradient id="sm-mugGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#faf3e7"/><stop offset="100%" stop-color="#e3c6a8"/></linearGradient></defs><ellipse cx="15" cy="27" rx="11" ry="2.3" fill="#e3c6a8" stroke="#3a1809" stroke-width="1.2"/><path d="M23 13 q6 0 6 5.5 q0 5.5 -6 5.5" fill="none" stroke="#3a1809" stroke-width="2.2" stroke-linecap="round"/><rect x="6" y="11" width="18" height="14" rx="3" fill="url(#sm-mugGrad)" stroke="#3a1809" stroke-width="1.5"/><path d="M7.3 13 h15.4 q0.6 2.2 -1.1 3.4 h-13.2 q-1.7 -1.2 -1.1 -3.4 z" fill="#8a3e1f"/></svg></span>Lox Café</button></li>
+          <li><button type="button" data-open="videos"><span class="link-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="16" height="16"><defs><linearGradient id="sm-clapBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#faf3e7"/><stop offset="100%" stop-color="#e3c6a8"/></linearGradient></defs><rect x="4" y="13" width="24" height="15" rx="2.5" fill="url(#sm-clapBody)" stroke="#3a1809" stroke-width="1.5"/><g transform="rotate(-7 16 10)"><rect x="3" y="6" width="26" height="7" rx="1.5" fill="#3a1809"/><rect x="7" y="6" width="3" height="7" fill="#eaef8e"/><rect x="14" y="6" width="3" height="7" fill="#eaef8e"/><rect x="21" y="6" width="3" height="7" fill="#eaef8e"/></g></svg></span>Videos</button></li>
+          <li><button type="button" data-open="cultural-icons"><span class="link-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="16" height="16"><defs><linearGradient id="sm-frameGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#eaef8e"/><stop offset="100%" stop-color="#c7cf4d"/></linearGradient></defs><rect x="4" y="4" width="24" height="24" rx="3" fill="url(#sm-frameGrad)" stroke="#3a1809" stroke-width="1.5"/><rect x="8" y="8" width="16" height="16" rx="1.5" fill="#faf3e7" stroke="#3a1809" stroke-width="1.2"/><circle cx="16" cy="14" r="3.2" fill="#8a3e1f"/><path d="M10 22 Q16 16 22 22 Z" fill="#8a3e1f"/></svg></span>Cultural Icons</button></li>
+          <li><button type="button" data-open="tica-linda"><span class="link-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="16" height="16"><defs><linearGradient id="sm-tlBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a2410"/><stop offset="100%" stop-color="#3a1809"/></linearGradient></defs><rect x="2" y="2" width="28" height="28" rx="10" fill="url(#sm-tlBg)" stroke="#3a1809" stroke-width="1.5"/><path d="M7 10 h8 v2.6 h-2.7 v9.4 h-2.6 v-9.4 h-2.7 z" fill="#6ebfea"/><path d="M17 10 h2.6 v9.4 h4.4 v2.6 h-7 z" fill="#6ebfea"/><path d="M24 5 l1 2.4 2.4 1 -2.4 1 -1 2.4 -1 -2.4 -2.4 -1 2.4 -1 z" fill="#faf3e7"/></svg></span>Tica Linda</button></li>
         </ul>
       </div>
     </div>
@@ -203,6 +211,67 @@
         </span>
         <span class="icon-label">Lox Café</span>
       </button>
+      <button type="button" class="icon" data-open="videos" role="listitem">
+        <span class="icon-glyph pixel-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <defs>
+              <linearGradient id="clapBody" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#faf3e7"/>
+                <stop offset="100%" stop-color="#e3c6a8"/>
+              </linearGradient>
+            </defs>
+            <rect x="4" y="13" width="24" height="15" rx="2.5" fill="url(#clapBody)" stroke="#3a1809" stroke-width="1.5"/>
+            <g transform="rotate(-7 16 10)">
+              <rect x="3" y="6" width="26" height="7" rx="1.5" fill="#3a1809"/>
+              <rect x="7" y="6" width="3" height="7" fill="#eaef8e"/>
+              <rect x="14" y="6" width="3" height="7" fill="#eaef8e"/>
+              <rect x="21" y="6" width="3" height="7" fill="#eaef8e"/>
+              <rect x="3" y="6" width="26" height="7" rx="1.5" fill="none" stroke="#3a1809" stroke-width="1.5"/>
+            </g>
+            <circle cx="24.5" cy="17.5" r="1.3" fill="#3a1809"/>
+            <ellipse cx="10" cy="19" rx="3" ry="1.6" fill="#fff" opacity="0.4"/>
+          </svg>
+        </span>
+        <span class="icon-label">Videos</span>
+      </button>
+      <button type="button" class="icon" data-open="cultural-icons" role="listitem">
+        <span class="icon-glyph pixel-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <defs>
+              <linearGradient id="frameGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#eaef8e"/>
+                <stop offset="100%" stop-color="#c7cf4d"/>
+              </linearGradient>
+            </defs>
+            <rect x="4" y="4" width="24" height="24" rx="3" fill="url(#frameGrad)" stroke="#3a1809" stroke-width="1.5"/>
+            <rect x="8" y="8" width="16" height="16" rx="1.5" fill="#faf3e7" stroke="#3a1809" stroke-width="1.2"/>
+            <circle cx="16" cy="14" r="3.2" fill="#8a3e1f"/>
+            <path d="M10 22 Q16 16 22 22 Z" fill="#8a3e1f"/>
+            <ellipse cx="9" cy="9" rx="2.4" ry="1.4" fill="#fff" opacity="0.4"/>
+          </svg>
+        </span>
+        <span class="icon-label">Cultural Icons</span>
+      </button>
+      <button type="button" class="icon" data-open="tica-linda" role="listitem">
+        <span class="icon-glyph pixel-icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="32" height="32">
+            <defs>
+              <linearGradient id="tlBg2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#4a2410"/>
+                <stop offset="100%" stop-color="#3a1809"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="28" height="28" rx="10" fill="url(#tlBg2)" stroke="#3a1809" stroke-width="1.5"/>
+            <path d="M7 10 h8 v2.6 h-2.7 v9.4 h-2.6 v-9.4 h-2.7 z" fill="#6ebfea"/>
+            <path d="M17 10 h2.6 v9.4 h4.4 v2.6 h-7 z" fill="#6ebfea"/>
+            <path d="M24 5 l1 2.4 2.4 1 -2.4 1 -1 2.4 -1 -2.4 -2.4 -1 2.4 -1 z" fill="#faf3e7"/>
+            <path d="M8 23 l0.6 1.5 1.5 0.6 -1.5 0.6 -0.6 1.5 -0.6 -1.5 -1.5 -0.6 1.5 -0.6 z" fill="#faf3e7"/>
+            <path d="M26 24 l0.4 1 1 0.4 -1 0.4 -0.4 1 -0.4 -1 -1 -0.4 1 -0.4 z" fill="#dde35f"/>
+            <ellipse cx="9" cy="9" rx="3.5" ry="2" fill="#fff" opacity="0.35"/>
+          </svg>
+        </span>
+        <span class="icon-label">Tica Linda</span>
+      </button>
     </div>
   </main>
 
@@ -334,7 +403,9 @@
             </div>
             <span class="work-tools-full" hidden><strong>Tools:</strong> Sprout Social, Trello, Google Slides, Instagram and TikTok analytics</span>
             <div class="work-embed" hidden>
-              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DQFhhSSE3FS/" data-instgrm-version="14"></blockquote>
+              <div class="work-link-chips">
+                <a href="https://www.instagram.com/p/DQFhhSSE3FS/" target="_blank" rel="noopener">View on Instagram →</a>
+              </div>
               <p class="work-link-list">More examples: <a href="https://www.instagram.com/p/DPzemFdjbEC/" target="_blank" rel="noopener">1</a>, <a href="https://www.instagram.com/p/DPZHV9uEsvC/" target="_blank" rel="noopener">2</a>, <a href="https://www.instagram.com/p/DPhevxajYyz/" target="_blank" rel="noopener">3</a>, <a href="https://www.instagram.com/p/DOrg9j9jhKn/" target="_blank" rel="noopener">4</a>, <a href="https://www.instagram.com/p/DNY30-Bpd7D/" target="_blank" rel="noopener">5</a>, <a href="https://www.instagram.com/p/DM8sqN3PtYB/" target="_blank" rel="noopener">6</a></p>
             </div>
           </button>
@@ -506,8 +577,10 @@
             </div>
             <span class="work-tools-full" hidden><strong>Channels:</strong> Instagram</span>
             <div class="work-embed" hidden>
-              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C8cals7t6Jh/" data-instgrm-version="14"></blockquote>
-              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C7xA7mkPMiJ/" data-instgrm-version="14"></blockquote>
+              <div class="work-link-chips">
+                <a href="https://www.instagram.com/p/C8cals7t6Jh/" target="_blank" rel="noopener">View post 1 →</a>
+                <a href="https://www.instagram.com/p/C7xA7mkPMiJ/" target="_blank" rel="noopener">View post 2 →</a>
+              </div>
             </div>
           </button>
           <button type="button" class="work-card" data-project="real-estate-cleanup">
@@ -609,26 +682,56 @@
       <ul class="link-list">
         <li>
           <a href="mailto:f.guerrerowork@gmail.com" class="link-item">
-            <span aria-hidden="true">✉️</span> Email
+            <span class="link-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="22" height="22">
+                <defs><linearGradient id="lk-envGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#faf3e7"/><stop offset="100%" stop-color="#e8dcc8"/></linearGradient></defs>
+                <rect x="3" y="8" width="26" height="18" rx="3.5" fill="url(#lk-envGrad)" stroke="#3a1809" stroke-width="1.5"/>
+                <path d="M4 9.5 L16 19 L28 9.5" fill="none" stroke="#2a4d73" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <ellipse cx="9.5" cy="12" rx="3.5" ry="1.8" fill="#fff" opacity="0.5"/>
+              </svg>
+            </span>
+            Email
           </a>
         </li>
         <li>
           <a href="https://www.linkedin.com/in/francheskaguerrero/" class="link-item" target="_blank" rel="noopener">
-            <span aria-hidden="true">💼</span> LinkedIn
+            <span class="link-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="22" height="22">
+                <defs><linearGradient id="lk-briefGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8fd4f2"/><stop offset="100%" stop-color="#6ebfea"/></linearGradient></defs>
+                <rect x="4" y="12" width="24" height="15" rx="2.5" fill="url(#lk-briefGrad)" stroke="#3a1809" stroke-width="1.5"/>
+                <path d="M12 12 v-3 a2 2 0 0 1 2 -2 h4 a2 2 0 0 1 2 2 v3" fill="none" stroke="#3a1809" stroke-width="1.5"/>
+                <rect x="4" y="17" width="24" height="3.5" fill="#2a4d73"/>
+                <ellipse cx="9.5" cy="15" rx="2.6" ry="1.4" fill="#fff" opacity="0.4"/>
+              </svg>
+            </span>
+            LinkedIn
           </a>
         </li>
         <li>
           <a href="https://github.com/francheska123/francheska123" class="link-item" target="_blank" rel="noopener">
-            <span aria-hidden="true">🖥️</span> GitHub
-          </a>
-        </li>
-        <li>
-          <a href="https://fromticalinda.substack.com/" class="link-item" target="_blank" rel="noopener">
-            <span aria-hidden="true">✍️</span> Tica Linda (Substack)
+            <span class="link-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" width="22" height="22">
+                <defs><linearGradient id="lk-monGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e3c6a8"/><stop offset="100%" stop-color="#a8531f"/></linearGradient></defs>
+                <rect x="4" y="6" width="24" height="16" rx="2.5" fill="url(#lk-monGrad)" stroke="#3a1809" stroke-width="1.5"/>
+                <rect x="7" y="9" width="18" height="10" rx="1" fill="#2a4d73"/>
+                <path d="M12 26 h8 M16 22 v4" stroke="#3a1809" stroke-width="2" stroke-linecap="round"/>
+                <ellipse cx="11" cy="12" rx="2.2" ry="1.3" fill="#fff" opacity="0.4"/>
+              </svg>
+            </span>
+            GitHub
           </a>
         </li>
         <li class="link-item link-item--todo">
-          <span aria-hidden="true">📄</span> Resume
+          <span class="link-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="22" height="22">
+              <defs><linearGradient id="lk-docGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#faf3e7"/><stop offset="100%" stop-color="#e8dcc8"/></linearGradient></defs>
+              <path d="M8 4 h12 l6 6 v18 a2 2 0 0 1 -2 2 h-16 a2 2 0 0 1 -2 -2 v-22 a2 2 0 0 1 2 -2 z" fill="url(#lk-docGrad)" stroke="#3a1809" stroke-width="1.5"/>
+              <path d="M20 4 v6 h6" fill="none" stroke="#3a1809" stroke-width="1.5" stroke-linejoin="round"/>
+              <line x1="11" y1="17" x2="21" y2="17" stroke="#8a3e1f" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="11" y1="21" x2="21" y2="21" stroke="#8a3e1f" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+          Resume
           <span class="todo-badge">add file</span>
         </li>
       </ul>
@@ -651,7 +754,7 @@
 
     <template id="tpl-game">
       <h2>Lox Café</h2>
-      <p>☕&nbsp; A little Diner Dash-style coffee shop I built myself. Make drinks, warm pastries, and keep the customers happy.</p>
+      <p>A little Diner Dash-style coffee shop I built myself. Make drinks, warm pastries, and keep the customers happy.</p>
       <div class="mini-browser">
         <div class="mini-browser-bar">
           <span class="mini-browser-dot"></span>
@@ -663,6 +766,45 @@
           <p class="placeholder-copy">On your phone: tap Share, then Add to Home Screen, and it plays like an app.</p>
           <a class="button" href="https://francheska123.github.io/lox-cafe/" target="_blank" rel="noopener">Play Lox Café →</a>
         </div>
+      </div>
+    </template>
+
+    <template id="tpl-tica-linda">
+      <h2>Tica Linda</h2>
+      <p>My blog on Substack.</p>
+      <div class="mini-browser">
+        <div class="mini-browser-bar">
+          <span class="mini-browser-dot"></span>
+          <span class="mini-browser-dot"></span>
+          <span class="mini-browser-dot"></span>
+          <span class="mini-browser-url">tica-linda</span>
+        </div>
+        <div class="mini-browser-body">
+          <a class="button" href="https://fromticalinda.substack.com/" target="_blank" rel="noopener">Read Tica Linda →</a>
+        </div>
+      </div>
+    </template>
+
+    <template id="tpl-videos">
+      <h2>Videos</h2>
+      <p class="placeholder-copy">A few things I've produced and edited.</p>
+      <h3>A Perfect Horse</h3>
+      <p>An interview I produced and edited with Brittany Beaupied, a horse trainer in Loxahatchee, FL.</p>
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/oznWrXjU3F8" title="A Perfect Horse" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </template>
+
+    <template id="tpl-cultural-icons">
+      <h2>Cultural Icons</h2>
+      <p class="placeholder-copy">A series investigating the history and cultural impact of popular figures.</p>
+      <h3>The Story Behind La Catrina</h3>
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/zfw9Jb3oVjU" title="The Story Behind La Catrina" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <h3>The Costa Rican Masquerade</h3>
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/w0mHVHZNO24" title="The Costa Rican Masquerade" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </template>
 
@@ -686,7 +828,6 @@
     </figure>
   </div>
 
-  <script src="js/app.js?v=17"></script>
-  <script async src="https://www.instagram.com/embed.js"></script>
+  <script src="js/app.js?v=19"></script>
 </body>
 </html>
